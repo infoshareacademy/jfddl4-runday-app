@@ -25,8 +25,8 @@ const pie_cells = data.map((entry, index) => {
 })
 
 const Dashboard = () => (
-    <div >
-        <h2>Running List </h2>
+    <div>
+        <h2 style={{textAlign: 'center'}}>Running List </h2>
         <PieChart width={500} height={500}>
             <Pie
                 data={data}
