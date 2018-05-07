@@ -1,4 +1,5 @@
 import React from 'react'
+import AppBar from 'material-ui/AppBar'
 import { render } from 'react-dom';
 import { PieChart, Pie, Tooltip, Cell } from 'recharts'
 
@@ -26,7 +27,14 @@ const pie_cells = data.map((entry, index) => {
 
 const Dashboard = () => (
     <div>
-        <h2 style={{textAlign: 'center'}}>Running List </h2>
+        <AppBar
+            style= {{background: '#8BC34A'}}
+            title="RunDay"
+            iconClassNameRight="muidocs-icon-navigation-expand-more"
+        />
+
+
+        <h2 style={{ textAlign: 'center' }}>Running List </h2>
         <PieChart width={500} height={500}>
             <Pie
                 data={data}

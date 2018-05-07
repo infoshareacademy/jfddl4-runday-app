@@ -9,7 +9,7 @@ import ResultsPage from './components/ResultsPage'
 import SearchForm from './components/SearchForm'
 
 
-const App = () => (
+const App = (props) => (
 
     <Router>
         <div>
