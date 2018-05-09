@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { PieChart, Pie, Tooltip, Cell } from 'recharts'
 
 import Container from './UI/Container'
+
 const data = [
     {
         value: 30,
@@ -29,11 +30,6 @@ const pie_cells = data.map((entry, index) => {
 const Dashboard = () => (
     <div>
         <Container>
-        <AppBar
-            style={{ background: '#33691E' }}
-            title="RunDay"
-            iconClassNameRight="muidocs-icon-navigation-expand-more"
-        />
             <h2 style={{ textAlign: 'center' }}>Running List </h2>
             <PieChart width={500} height={500}>
                 <Pie
