@@ -9,7 +9,7 @@ import RegistrationForm from './components/RegistrationForm'
 import ResultsPage from './components/ResultsPage'
 import SearchForm from './components/SearchForm'
 import SideBar from './components/SideBar'
-
+import ToDo from './components/ToDo'
 
 class App extends React.Component {
 
@@ -41,6 +41,7 @@ class App extends React.Component {
                         <Route path={'/RegistrationForm'} component={RegistrationForm}/>
                         <Route path={'/ResultsPage'} component={ResultsPage}/>
                         <Route path={'/SearchForm'} component={SearchForm}/>
+                        <Route path={'/Todo'} component={ToDo}/>
                     </div>
                 </Router>
             </div>

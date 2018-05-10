@@ -14,6 +14,7 @@ const SideBar = (props) => (
         <Link to={'/RegistrationForm'}><MenuItem>Registration form</MenuItem> </Link>
         <Link to={'/ResultsPage'}><MenuItem>Result page</MenuItem> </Link>
         <Link to={'/SearchForm'}><MenuItem>Search form</MenuItem> </Link>
+        <Link to={'/Todo'}><MenuItem>Search form</MenuItem> </Link>
     </Drawer>
 )
 
