@@ -2,10 +2,6 @@ import React from 'react'
 
 // const ListOfResults = () => <div></div>
 
-
-
-
-
 const runPattern = {
     date:'',
     creator:'',
@@ -14,8 +10,6 @@ const runPattern = {
     status:'',
     runners:[]
 }
-
-
 
 class ListOfResults extends React.Component{
     state = {
