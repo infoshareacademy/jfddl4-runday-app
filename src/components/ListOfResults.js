@@ -3,16 +3,14 @@ import React from 'react'
 // const ListOfResults = () => <div></div>
 
 
-
-
-
 const runPattern = {
-    date:'',
     creator:'',
     start:'',
+    date:'',
     distance:'',
     status:'',
-    runners:[]
+    runners:[],
+    markers: []
 }
 
 
@@ -36,7 +34,7 @@ class ListOfResults extends React.Component{
                     imBusy:false
                 })
 
-            },3000)
+            },500)
            
             console.log('test', users.data)
 

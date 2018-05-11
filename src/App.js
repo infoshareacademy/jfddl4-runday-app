@@ -1,6 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
-import MenuItem from 'material-ui/MenuItem'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import AppBar from 'material-ui/AppBar'
 
 import Dashboard from './components/Dashboard'
@@ -13,39 +12,43 @@ import SideBar from './components/SideBar'
 
 class App extends React.Component {
 
-    state = {
-        isDrawerOpen: false
-    }
-    drawerBtnClickHandler = () => this.setState({
-        isDrawerOpen: !this.state.isDrawerOpen
-    })
+  state = {
+    isDrawerOpen: false
+  }
+
+  drawerBtnClickHandler = () => this.setState({
+    isDrawerOpen: !this.state.isDrawerOpen
+  })
 
 
-    render() {
-        return (
-            <div>
-                <AppBar
-                    title="RunDay"
-                    style={{ background: '#33691E' }}
-                    onLeftIconButtonClick={this.drawerBtnClickHandler}
-                />
-                <Router>
-                    <div>
-                        <SideBar
-                            onRequestSideBarChange={this.drawerBtnClickHandler}
-                            isSideBarOpen={this.state.isDrawerOpen}
-                        />
+  render() {
+    return (
 
-                        <Route exact path={'/'} component={Dashboard}/>
-                        <Route exact path={'/ListOfResults'} component={ListOfResults}/>
-                        <Route path={'/RegistrationForm'} component={RegistrationForm}/>
-                        <Route path={'/ResultsPage'} component={ResultsPage}/>
-                        <Route path={'/SearchForm'} component={SearchForm}/>
-                    </div>
-                </Router>
-            </div>
-        )
-    }
+      <Router>
+        <div>
+          <AppBar
+            title="RunDay"
+            style={{ background: '#33691E' }}
+            onLeftIconButtonClick={this.drawerBtnClickHandler}
+          />
+
+          <div>
+            <SideBar
+              onRequestSideBarChange={this.drawerBtnClickHandler}
+              isSideBarOpen={this.state.isDrawerOpen}
+            />
+
+            <Route exact path={'/'} component={Dashboard} />
+            <Route path={'/ListOfResults'} component={ListOfResults} />
+            <Route path={'/RegistrationForm'} component={RegistrationForm} />
+            <Route path={'/ResultsPage'} component={ResultsPage} />
+            <Route path={'/SearchForm'} component={SearchForm} />
+          </div>
+        </div>
+      </Router>
+
+    )
+  }
 
 
 }

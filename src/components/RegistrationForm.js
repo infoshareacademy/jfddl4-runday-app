@@ -1,5 +1,8 @@
 import React from 'react'
 
-const RegistrationForm = () => <div>test</div>
+const RegistrationForm = () => (
+<div>
+    hello from registration 
+</div>)
 
 export default RegistrationForm

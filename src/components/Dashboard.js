@@ -1,6 +1,5 @@
 import React from 'react'
-import AppBar from 'material-ui/AppBar'
-import { render } from 'react-dom';
+
 import { PieChart, Pie, Tooltip, Cell } from 'recharts'
 
 import Container from './UI/Container'

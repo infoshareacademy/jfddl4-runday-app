@@ -1,7 +1,5 @@
-
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-
 
 class SimpleMap extends Component {
     state = {
@@ -20,9 +18,6 @@ class SimpleMap extends Component {
         })
         console.log(this.state.markers)
     }
-
-
-
 
     render() {
         return (
