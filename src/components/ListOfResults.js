@@ -1,18 +1,5 @@
 import React from 'react'
 
-// const ListOfResults = () => <div></div>
-
-
-const runPattern = {
-    creator:'',
-    start:'',
-    date:'',
-    distance:'',
-    status:'',
-    runners:[],
-    markers: []
-}
-
 class ListOfResults extends React.Component{
     state = {
         imBusy:true,
