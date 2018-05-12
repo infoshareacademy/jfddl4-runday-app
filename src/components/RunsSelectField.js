@@ -11,8 +11,6 @@ export const CategoryOfRun = props => (
 			value={props.category}
             onChange={props.onSelectChange}
             fullWidth={true}
-            
-            floatingLabelStyle={{ color: webeesColors.darkGreen, fontFamily: webeesFont }}
 		>
 			<MenuItem value={'city'} primaryText="City" />
 			<MenuItem value={'forest'} primaryText="Forest" />
