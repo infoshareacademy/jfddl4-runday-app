@@ -5,7 +5,7 @@ import AppBar from 'material-ui/AppBar'
 import Dashboard from './components/Dashboard'
 import ListOfResults from './components/ListOfResults'
 import RegistrationForm from './components/RegistrationForm'
-import ResultsPage from './components/ResultsPage'
+import CreateNewRun from './components/CreateNewRun'
 import SearchForm from './components/SearchForm'
 import SideBar from './components/SideBar'
 
@@ -41,7 +41,7 @@ class App extends React.Component {
             <Route exact path={'/'} component={Dashboard} />
             <Route path={'/ListOfResults'} component={ListOfResults} />
             <Route path={'/RegistrationForm'} component={RegistrationForm} />
-            <Route path={'/ResultsPage'} component={ResultsPage} />
+            <Route path={'/CreateNewRun'} component={CreateNewRun} />
             <Route path={'/SearchForm'} component={SearchForm} />
           </div>
         </div>
