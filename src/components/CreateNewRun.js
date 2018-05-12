@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import { MapsDirections, TextField, RaisedButton } from 'material-ui';
 import DatePicker from 'material-ui/DatePicker';
-
+import moment from 'moment'
 class Map extends Component {
     state = {
         runName: '',
@@ -12,8 +12,9 @@ class Map extends Component {
             lng: 22.568445
         },
         markers: [],
+        distanece: '',
         zoom: 11,
-
+        runners : []
     };
 
     placeMarker = ({ lat, lng }) => {
@@ -21,17 +22,24 @@ class Map extends Component {
         this.setState({
             markers: this.state.markers.concat(markerData),
         })
-        console.log(this.state.markers)
     }
+
     nameOfRunChangeHandler = (e, value) => this.setState({ runName: value })
     newRunDataPickerHandler = (e, value) => this.setState({ runData: value })
-    
+
     saveRun = () => {
+        fetch('https://runday-app.firebaseio.com/runs.json',
+            {
+                method: 'POST',
+                body: JSON.stringify(this.state)
+            }
+        )
         this.placeMarker
         this.setState({
             markers: [],
             runName: '',
-            runData: ''
+            runData: '',
+            runners :['Pawel', 'Michal']
         })
         console.log(this.state)
     }
@@ -55,14 +63,17 @@ class Map extends Component {
                     value={this.state.runName}
                     onChange={this.nameOfRunChangeHandler}
                 />
-                    <DatePicker hintText="Portrait Dialog" 
+                <DatePicker 
+                    hintText="Choose date"
                     onChange={this.newRunDataPickerHandler}
-                    />
-                    <RaisedButton 
+                    autoOk={true}
+                    //formatDate={(date) => moment(date).format('DD-MM-YYYY')}
+                /> 
+                <RaisedButton
                     label={'Create Run'}
                     onClick={this.saveRun}
-                    />
-                 
+                />
+
             </div>
         );
     }

@@ -3,10 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import AppBar from 'material-ui/AppBar'
 
 import Dashboard from './components/Dashboard'
-import ListOfResults from './components/ListOfResults'
-import RegistrationForm from './components/RegistrationForm'
 import CreateNewRun from './components/CreateNewRun'
-import SearchForm from './components/SearchForm'
+import ListOfRun from './components/ListOfRun'
 import SideBar from './components/SideBar'
 
 
@@ -39,10 +37,8 @@ class App extends React.Component {
             />
 
             <Route exact path={'/'} component={Dashboard} />
-            <Route path={'/ListOfResults'} component={ListOfResults} />
-            <Route path={'/RegistrationForm'} component={RegistrationForm} />
             <Route path={'/CreateNewRun'} component={CreateNewRun} />
-            <Route path={'/SearchForm'} component={SearchForm} />
+            <Route path={'/ListOfRun'} component={ListOfRun} />
           </div>
         </div>
       </Router>

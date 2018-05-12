@@ -9,11 +9,9 @@ const SideBar = ({ onRequestSideBarChange, isSideBarOpen }) => (
         onRequestChange={onRequestSideBarChange}
         open={isSideBarOpen}
     >
-        <Link to={'/'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Dashboard</MenuItem> </Link>
-        <Link to={'/ListOfResults'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Listen of results</MenuItem> </Link>
+        <Link to={'/'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Dashboard</MenuItem> </Link>    
         <Link to={'/CreateNewRun'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Create new run</MenuItem> </Link>
-        <Link to={'/ResultsPage'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Result page</MenuItem> </Link>
-        <Link to={'/SearchForm'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Search form</MenuItem> </Link>
+        <Link to={'/ListOfRun'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Schow List Of Runs</MenuItem> </Link>
     </Drawer>
 )
 
