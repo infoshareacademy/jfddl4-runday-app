@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard'
 import CreateNewRun from './components/CreateNewRun'
 import ListOfRun from './components/ListOfRun'
 import SideBar from './components/SideBar'
+import LinkButton from './components/LinkButton';
 
 
 class App extends React.Component {
@@ -21,7 +22,7 @@ class App extends React.Component {
 
   render() {
     return (
-
+      <div>
       <Router>
         <div>
           <AppBar
@@ -42,7 +43,8 @@ class App extends React.Component {
           </div>
         </div>
       </Router>
-
+        <LinkButton />
+      </div>
     )
   }
 
