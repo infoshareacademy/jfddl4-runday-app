@@ -1,10 +1,11 @@
 import React from 'react'
 import Paper from 'material-ui/Paper'
 
-/*const style = {
-    background: '#F1F8E9'
-}*/
+const style = {
+    padding: '10px',
 
-const Container = (props) =>  <Paper  zDepth={1}>{props.children}</Paper>
+}
+
+const Container = (props) =>  <Paper  style={style}zDepth={1}>{props.children}</Paper>
 
 export default Container

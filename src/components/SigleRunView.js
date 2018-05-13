@@ -1,13 +1,12 @@
 import React from 'react';
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card'
-import FlatButton from 'material-ui/FlatButton'
+import { Card, CardHeader, CardText } from 'material-ui/Card'
 import { Grid, Row, Col } from 'react-flexbox-grid'
-import Map from './CreateNewRun'
+
 import Container from './UI/Container';
 import SingleViewMap from './SingleViewMap';
 
 const CardExampleExpandable = (props) => (
-  <Card>
+  <Card >
     <CardHeader
       title={props.title}
       subtitle={props.distance}
@@ -31,8 +30,6 @@ const CardExampleExpandable = (props) => (
             <div>Category: {props.category} </div>
             <div>Max runners: {props.runners} </div>
             
-            
-
           </Col>
         </Row>
       </Grid>

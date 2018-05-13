@@ -9,7 +9,7 @@ const LinkButton = () => (
             style={{margin: '5vh 0 5vh 95%'}}
             className="material-icons"
             onClick={() => window.open('http://www.facebook.com/')}
-            mini='true'
+            mini={true}
         > 
             <ActionThumbUp />
         </FloatingActionButton>

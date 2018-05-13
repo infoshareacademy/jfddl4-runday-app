@@ -7,11 +7,10 @@ const SingleViewMap = (props) =>
     <div style={{ height: '50vh', width: '100%' }}>
         <GoogleMapReact
             bootstrapURLKeys={{ key: 'AIzaSyBjbSX619TpTJBp9afQKJUuueKAF9ZGawc' }}
-            defaultCenter={{ lat: props.markers[0].lat, lng: props.markers[0].lng }}
+            defaultCenter={{ lat: props.markers[0].lat, lng: props.markers[0].lng}}
             defaultZoom={15}
         >
-            {props.markers.map((marker, i) => <Marker text={i + 1} lat={marker.lat} lng={marker.lng} />)}
+            {props.markers.map((marker, i) => <Marker text={i + 1} lat={marker.lat} lng={marker.lng} key={marker.key}/>)}
         </GoogleMapReact>
     </div>
-
 export default SingleViewMap

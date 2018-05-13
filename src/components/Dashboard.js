@@ -1,47 +1,56 @@
 import React from 'react'
 
 import { PieChart, Pie, Tooltip, Cell } from 'recharts'
-
+import { mapObjectToArray } from './Methods/MapObjectToArray'
 import Container from './UI/Container'
+class Dashboard extends React.Component {
+  state = {
+    imBusy: true,
+    imWithErrors: false,
+    data: []
+  }
 
-const data = [
-    {
-        value: 30,
-        name: 'biegi po lesie',
-        color: 'green'
-    },
-    {
-        value: 20,
-        name: 'biegi po miescie',
-        color: 'red'
-    },
-    {
-        value: 30,
-        name: 'biegi bez butow',
-        color: 'yellow'
+  componentDidMount() {
+    fetch('https://runday-app.firebaseio.com/runs.json')
+      .then(r => r.json())
+      .then((run) => {
+        this.setState({
+          data: [
+            {
+              value: mapObjectToArray(run)
+                .map(run => run.category)
+                .filter(category => category === 'city').length, name: 'City runs', color: 'red'
+            },
+            {
+              value: mapObjectToArray(run)
+                .map(run => run.category)
+                .filter(category => category === 'forest').length, name: 'Forest runs', color: 'green'
+            }],
+          imBusy: false
+        })
+        console.log('test', this.state.data)
+      })
+  }
+  render() {
+    if (this.state.imBusy) {
+      return (<span>Loading .... </span>)
     }
-]
-
-const pie_cells = data.map((entry, index) => {
-    return (<Cell key={index} fill={entry.color} />)
-})
-
-const Dashboard = () => (
-    <div>
+    return (
+      <div>
         <Container>
-            <h2 style={{ textAlign: 'center' }}>Running List </h2>
-            <PieChart width={500} height={500}>
-                <Pie
-                    data={data}
-                    dataKey="value"
-                    nameKey="name"
-                >
-                    {pie_cells}
-                </Pie>
-                <Tooltip />
-            </PieChart>
+          <h2 style={{ textAlign: 'center' }}>Running List </h2>
+          <PieChart width={500} height={500}>
+            <Pie
+              data={this.state.data}
+              dataKey="value"
+              nameKey="name"
+            >
+              {this.state.data.map((entry, index) => <Cell key={index} fill={entry.color} />)}
+            </Pie>
+            <Tooltip />
+          </PieChart>
         </Container>
-    </div>
-);
-
+      </div>)
+  }
+}
 export default Dashboard
