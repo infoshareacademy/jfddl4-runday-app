@@ -4,6 +4,7 @@ import FlatButton from 'material-ui/FlatButton'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import Map from './CreateNewRun'
 import Container from './UI/Container';
+import SingleViewMap from './SingleViewMap';
 
 const CardExampleExpandable = (props) => (
   <Card>
@@ -19,7 +20,10 @@ const CardExampleExpandable = (props) => (
         <Row>
           <Col xs={12} sm={12} md={9} lg={9}>
             <Container>
-            <div>Map markers:{props.markers}</div>
+            <SingleViewMap 
+            markers = {props.markers}
+          
+            />
             </Container>
           </Col>
           <Col xs={12} sm={12} md={3} lg={3}>
