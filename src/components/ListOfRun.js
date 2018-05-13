@@ -39,8 +39,12 @@ class ListOfResults extends React.Component {
                     <SingleRunView
                         title={run.runName}
                         avatar={ run.category==='city' ? <LocationCity /> : <LocalFlorist/> }
-                        distance= {`${run.distance.toFixed(3)}km`}
-                        message={run.runners}
+                        distance= {`${run.distance.toFixed(3)} km`}
+                        runDate={run.runData}
+                        category={run.category}
+                        runners={run.runners}
+                        //markers={run.markers}
+                        
                 />)}
             </div>
         </div>

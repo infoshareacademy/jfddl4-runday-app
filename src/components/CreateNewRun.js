@@ -8,7 +8,7 @@ import { getDistanceFromLatLonInKm } from './Methods/getDistanceFromLatLonInKm '
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import { RunnersCount, CategoryOfRun } from './RunsSelectField'
 import Container from './UI/Container'
-import AddRunSnackbar from './AddRunSnackbar'
+import AddRunSnackbar from './CreateRunSnackbar'
 class Map extends Component {
     state = {
         runName: '',
