@@ -1,5 +1,5 @@
 import React from 'react'
-
+import SingleRunView from './SigleRunView'
 class ListOfResults extends React.Component{
     state = {
         imBusy:true,
@@ -41,7 +41,10 @@ class ListOfResults extends React.Component{
 
         return (<div>
             <h2>ListOfResults</h2>
+            <SingleRunView />
+            <SingleRunView />
             <ul>{JSON.stringify(this.state.runList)}</ul>
+
             </div>)
     }
 }

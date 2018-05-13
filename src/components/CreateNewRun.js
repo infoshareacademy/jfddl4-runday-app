@@ -7,6 +7,7 @@ import moment from 'moment'
 import { getDistanceFromLatLonInKm } from './Methods/getDistanceFromLatLonInKm ';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { RunnersCount, CategoryOfRun } from './RunsSelectField';
+import Container from './UI/Container';
 class Map extends Component {
     state = {
         runName: '',
@@ -24,7 +25,7 @@ class Map extends Component {
         })
     }
     runNameChangeHandler = (e, value) => this.setState({ runName: value })
-    newRunDataPickerHandler = (e, value) => this.setState({ runData: value })
+    newRunDataPickerHandler = (e, value) => this.setState({ runData: moment(value).format('DD-MM-YYYY') })
     runnersCountChangeHandler = (e, idx, value) => this.setState({ runners: value })
     runCategoryChangeHandler = (e, idx, value) => this.setState({ category: value })
     
@@ -43,15 +44,17 @@ class Map extends Component {
         )
         console.log(this.state)
     }
-
+    
     render() {
         return (
             // Important! Always set the container height explicitl
-            <div style={{ textAlign: 'center' }}>
+           <Container>
+                <div>
+             
                 <Grid fluid>
                     <Row>
                         <Col xs={12} sm={12} md={9} lg={9}>
-                            <div style={{ height: '60vh', width: '100%' }}>
+                            <div style={{ height: '70vh', width: '100%' }}>
                                 <GoogleMapReact
                                     bootstrapURLKeys={{ key: 'AIzaSyBjbSX619TpTJBp9afQKJUuueKAF9ZGawc' }}
                                     defaultCenter={{ lat: 51.246452, lng: 22.568445 }}
@@ -87,14 +90,16 @@ class Map extends Component {
                             />
                             <RaisedButton
                                 label={'Create Run'}
-                                onClick={this.saveRun}
+                                onClick={this.state.runName.length > 2 ? this.saveRun :  () => alert('nazwa ')}
                                 fullWidth={true}
                                 primary={true}
                             />
                         </Col>
                     </Row>
                 </Grid>
+               
             </div>
+            </Container>
         );
     }
 }

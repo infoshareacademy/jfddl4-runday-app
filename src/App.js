@@ -27,7 +27,6 @@ class App extends React.Component {
         <div>
           <AppBar
             title="RunDay"
-            style={{ background: '#33691E' }}
             onLeftIconButtonClick={this.drawerBtnClickHandler}
           />
 

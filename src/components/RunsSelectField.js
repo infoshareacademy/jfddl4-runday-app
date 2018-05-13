@@ -20,7 +20,7 @@ export const CategoryOfRun = props => (
 
 
 const items = []
-for (let i = 1; i <= 20; i++)
+for (let i = 2; i <= 20; i++)
 	items.push(<MenuItem value={i} key={i} primaryText={i} />)
 
 export class RunnersCount extends React.Component {
