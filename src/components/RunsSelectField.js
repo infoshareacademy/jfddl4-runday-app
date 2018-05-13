@@ -2,8 +2,6 @@ import React from 'react'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 
-
-
 export const CategoryOfRun = props => (
 	<div>
 		<SelectField
@@ -17,17 +15,15 @@ export const CategoryOfRun = props => (
 		</SelectField>
 	</div>
 )
-
-
 const items = []
-for (let i = 2; i <= 20; i++)
+for (let i = 1; i <= 20; i++)
 	items.push(<MenuItem value={i} key={i} primaryText={i} />)
 
 export class RunnersCount extends React.Component {
 	render() {
 		return (
 			<SelectField
-				floatingLabelText={'Number of runers'}
+				floatingLabelText={'Set number of runners'}
 				value={this.props.runners}
 				onChange={this.props.onSelectChange}
                 maxHeight={100}

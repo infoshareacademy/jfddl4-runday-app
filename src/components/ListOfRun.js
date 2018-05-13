@@ -33,7 +33,7 @@ class ListOfResults extends React.Component{
 
 
     render(){
-        console.log('this',this.state, this.props)
+        //console.log('this',this.state, this.props)
 
         if(this.state.imBusy){
             return (<span>cos sie dzieje</span>)
@@ -44,7 +44,7 @@ class ListOfResults extends React.Component{
             <SingleRunView />
             <SingleRunView />
             <ul>{JSON.stringify(this.state.runList)}</ul>
-
+            {console.log(this.setState.runList)}
             </div>)
     }
 }
