@@ -1,7 +1,7 @@
 import React from 'react'
-
 import { PieChart, Pie, Tooltip, Cell } from 'recharts'
 import { mapObjectToArray } from './Methods/MapObjectToArray'
+
 import Container from './UI/Container'
 class Dashboard extends React.Component {
   state = {
@@ -19,7 +19,7 @@ class Dashboard extends React.Component {
             {
               value: mapObjectToArray(run)
                 .map(run => run.category)
-                .filter(category => category === 'city').length, name: 'City runs', color: 'red'
+                .filter(category => category === 'city').length, name: 'City runs', color: '#212121'
             },
             {
               value: mapObjectToArray(run)
