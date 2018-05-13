@@ -1,4 +1,6 @@
 import React from 'react'
+import LocationCity from 'material-ui/svg-icons/social/location-city'
+import LocalFlorist from 'material-ui/svg-icons/maps/local-florist'
 import SingleRunView from './SigleRunView'
 class ListOfResults extends React.Component {
     state = {
@@ -36,6 +38,7 @@ class ListOfResults extends React.Component {
                 {this.state.runList.map(run =>
                     <SingleRunView
                         title={run.runName}
+                        avatar={ run.category==='city' ? <LocationCity /> : <LocalFlorist/> }
                         distance= {`${run.distance.toFixed(3)}km`}
                         message={run.runners}
                 />)}

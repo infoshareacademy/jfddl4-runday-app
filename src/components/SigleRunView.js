@@ -8,7 +8,7 @@ const CardExampleExpandable = (props) => (
     <CardHeader
           title={props.title}
           subtitle={props.distance}
-          avatar="images/ok-128.jpg"
+          avatar={props.avatar}
           actAsExpander={true}
           showExpandableButton={true}
         />
