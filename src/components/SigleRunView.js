@@ -3,17 +3,17 @@ import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card'
 import FlatButton from 'material-ui/FlatButton'
 import Map from './CreateNewRun'
 
-const CardExampleExpandable = () => (
+const CardExampleExpandable = (props) => (
   <Card>
     <CardHeader
-          title="Run title"
-          subtitle="Distance"
+          title={props.title}
+          subtitle={props.distance}
           avatar="images/ok-128.jpg"
           actAsExpander={true}
           showExpandableButton={true}
         />
      <CardText expandable={true}>
-      <Map />
+      <span>Runners : {props.message} </span>
     </CardText>
   </Card>
 );

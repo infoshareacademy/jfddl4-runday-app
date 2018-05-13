@@ -4,9 +4,9 @@ import ActionThumbUp from 'material-ui/svg-icons/action/thumb-up'
 
 
 const LinkButton = () => (
-    <div>
+    <div> 
         <FloatingActionButton
-            style={{marginLeft: '90%'}}
+            style={{margin: '5vh 0 5vh 95%'}}
             className="material-icons"
             onClick={() => window.open('http://www.facebook.com/')}
             mini='true'
