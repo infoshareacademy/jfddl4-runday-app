@@ -4,6 +4,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid'
 
 import Container from './UI/Container';
 import SingleViewMap from './SingleViewMap';
+import { RaisedButton } from 'material-ui';
 
 const CardExampleExpandable = (props) => (
   <Card >
@@ -29,6 +30,12 @@ const CardExampleExpandable = (props) => (
             <div>Run date: {props.runDate} </div>
             <div>Category: {props.category} </div>
             <div>Max runners: {props.runners} </div>
+            <RaisedButton 
+             onClick={()=>alert('This feature is not yet available.')}
+             label="JOIN"
+             primary={true}
+             fullWidth={true}
+            />
             
           </Col>
         </Row>
