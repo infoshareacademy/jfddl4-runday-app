@@ -23,25 +23,25 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <Router>
-        <div>
-          <AppBar
-            title="RunDay"
-            onLeftIconButtonClick={this.drawerBtnClickHandler}
-          />
-
+        <Router>
           <div>
-            <SideBar
-              onRequestSideBarChange={this.drawerBtnClickHandler}
-              isSideBarOpen={this.state.isDrawerOpen}
+            <AppBar
+              title="RunDay"
+              onLeftIconButtonClick={this.drawerBtnClickHandler}
             />
 
-            <Route exact path={'/'} component={Dashboard} />
-            <Route path={'/CreateNewRun'} component={CreateNewRun} />
-            <Route path={'/ListOfRun'} component={ListOfRun} />
+            <div>
+              <SideBar
+                onRequestSideBarChange={this.drawerBtnClickHandler}
+                isSideBarOpen={this.state.isDrawerOpen}
+              />
+
+              <Route exact path={'/'} component={Dashboard} />
+              <Route path={'/CreateNewRun'} component={CreateNewRun} />
+              <Route path={'/ListOfRun'} component={ListOfRun} />
+            </div>
           </div>
-        </div>
-      </Router>
+        </Router>
         <LinkButton />
       </div>
     )
