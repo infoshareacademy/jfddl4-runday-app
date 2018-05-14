@@ -22,14 +22,14 @@ class ListOfResults extends React.Component {
                     runList: mapObjectToArray(run),
                     imBusy: false
                 })
-                console.log('test', this.state.runList)
+                //console.log('test', this.state.runList)
             })
     }
     handleRunNameChangeChandler = (e, value) => this.setState({ runName: value });
     handleDistanceChangeChandler = (e, value) => this.setState({ distance: value })
     handleCategoryChangeChandler = (e, idx, value) => this.setState({ category: value })
     render() {
-        console.log(this.state.category)
+       //console.log(this.state.category)
         if (this.state.imBusy) {
             return (<span>Loading .... </span>)
         }
