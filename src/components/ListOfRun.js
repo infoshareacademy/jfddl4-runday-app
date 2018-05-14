@@ -9,7 +9,9 @@ class ListOfResults extends React.Component {
         imBusy: true,
         imWithErrors: false,
         runList: [],
-        distance: 25
+        runName: '',
+        distance: 25,
+        category: ''
     }
 
     componentDidMount() {
@@ -23,36 +25,38 @@ class ListOfResults extends React.Component {
                 console.log('test', this.state.runList)
             })
     }
-
-    
-    handleDistanceChangeChandler = (e, value) => this.setState({ distance: value }) 
-
+    handleRunNameChangeChandler = (e, value) => this.setState({ runName: value });
+    handleDistanceChangeChandler = (e, value) => this.setState({ distance: value })
+    handleCategoryChangeChandler = (e, idx, value) => this.setState({ category: value })
     render() {
-        console.log(this.state.runList)
+        console.log(this.state.category)
         if (this.state.imBusy) {
             return (<span>Loading .... </span>)
         }
-        
         return (
             <div>
                 <ListResearch
+                    handleRunNameChangeChandler={this.handleRunNameChangeChandler}
                     handleDistanceChangeChandler={this.handleDistanceChangeChandler}
-                   
+                    handleCategoryChangeChandler={this.handleCategoryChangeChandler}
+                    category={this.state.category}
                 />
                 <div>
                     {this.state.runList
-                    .filter(x=>x.distance<this.state.distance)
-                    .map(run =>
-                        <SingleRunView
-                            title={run.runName}
-                            avatar={run.category === 'city' ? <LocationCity /> : <LocalFlorist />}
-                            distance={`${run.distance.toFixed(3)} km`}
-                            runDate={run.runData}
-                            category={run.category}
-                            runners={run.runners}
-                            markers={run.markers}
-                            key={run.key}
-                        />)}
+                        .filter(nam => nam.runName.toLowerCase().indexOf(this.state.runName.toLowerCase()) !== -1)
+                        .filter(dist => dist.distance < this.state.distance)
+                        .filter(cat => this.state.category === '' ? true : cat.category === this.state.category)
+                        .map(run =>
+                            <SingleRunView
+                                title={run.runName}
+                                avatar={run.category === 'city' ? <LocationCity /> : <LocalFlorist />}
+                                distance={`${run.distance.toFixed(3)} km`}
+                                runDate={run.runData}
+                                category={run.category}
+                                runners={run.runners}
+                                markers={run.markers}
+                                key={run.key}
+                            />)}
                 </div>
             </div>
         )
