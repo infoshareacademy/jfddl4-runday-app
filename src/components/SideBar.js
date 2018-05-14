@@ -1,19 +1,17 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 
-const SideBar = (props) => (
+const SideBar = ({ onRequestSideBarChange, isSideBarOpen }) => (
     <Drawer
         docked={false}
-        onRequestChange={props.onRequestSideBarChange}
-        open={props.isSideBarOpen}
+        onRequestChange={onRequestSideBarChange}
+        open={isSideBarOpen}
     >
-        <Link to={'/'}><MenuItem>Dashboard</MenuItem> </Link>
-        <Link to={'/ListOfResults'}><MenuItem>Listen of results</MenuItem> </Link>
-        <Link to={'/RegistrationForm'}><MenuItem>Registration form</MenuItem> </Link>
-        <Link to={'/ResultsPage'}><MenuItem>Result page</MenuItem> </Link>
-        <Link to={'/SearchForm'}><MenuItem>Search form</MenuItem> </Link>
+        <Link to={'/'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Dashboard</MenuItem> </Link>    
+        <Link to={'/CreateNewRun'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Create new run</MenuItem> </Link>
+        <Link to={'/ListOfRun'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Schow List Of Runs</MenuItem> </Link>
     </Drawer>
 )
 

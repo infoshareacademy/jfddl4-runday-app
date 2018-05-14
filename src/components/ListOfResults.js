@@ -1,22 +1,5 @@
 import React from 'react'
 
-// const ListOfResults = () => <div></div>
-
-
-
-
-
-const runPattern = {
-    date:'',
-    creator:'',
-    start:'',
-    distance:'',
-    status:'',
-    runners:[]
-}
-
-
-
 class ListOfResults extends React.Component{
     state = {
         imBusy:true,
@@ -25,20 +8,26 @@ class ListOfResults extends React.Component{
         users:[]
     }
 
+    mapObjectToArray = (obj) => (
+        Object.entries(obj || {})
+          .map(([key, value]) => (
+            typeof value === 'object' ?
+              {...value, key}
+              :
+              {key, value}
+          ))
+      )
     componentDidMount(){
         // fetch something
-        window.fetch('https://tasks.isa.valuepoint.pl/users')
+        fetch('https://runday-app.firebaseio.com/runs.json')
         .then(r=>r.json())
-        .then((users)=>{
-            setTimeout(()=>{
-                this.setState({
-                    users:users.data,
+        .then((user)=>{
+                    this.setState({
+                    users: user,
                     imBusy:false
                 })
-
-            },3000)
            
-            console.log('test', users.data)
+            console.log('test', user)
 
         })
     }
@@ -52,7 +41,7 @@ class ListOfResults extends React.Component{
 
         return (<div>
             <h2>ListOfResults</h2>
-            <h3>{JSON.stringify(this.state.users)}</h3>
+            <ul>{JSON.stringify(this.state.users)}</ul>
             </div>)
     }
 }

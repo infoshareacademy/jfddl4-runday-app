@@ -1,51 +1,51 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
-import MenuItem from 'material-ui/MenuItem'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import AppBar from 'material-ui/AppBar'
 
 import Dashboard from './components/Dashboard'
-import ListOfResults from './components/ListOfResults'
-import RegistrationForm from './components/RegistrationForm'
-import ResultsPage from './components/ResultsPage'
-import SearchForm from './components/SearchForm'
+import CreateNewRun from './components/CreateNewRun'
+import ListOfRun from './components/ListOfRun'
 import SideBar from './components/SideBar'
+import LinkButton from './components/LinkButton';
 
 
 class App extends React.Component {
 
-    state = {
-        isDrawerOpen: false
-    }
-    drawerBtnClickHandler = () => this.setState({
-        isDrawerOpen: !this.state.isDrawerOpen
-    })
+  state = {
+    isDrawerOpen: false
+  }
+
+  drawerBtnClickHandler = () => this.setState({
+    isDrawerOpen: !this.state.isDrawerOpen
+  })
 
 
-    render() {
-        return (
-            <div>
-                <AppBar
-                    title="RunDay"
-                    style={{ background: '#33691E' }}
-                    onLeftIconButtonClick={this.drawerBtnClickHandler}
-                />
-                <Router>
-                    <div>
-                        <SideBar
-                            onRequestSideBarChange={this.drawerBtnClickHandler}
-                            isSideBarOpen={this.state.isDrawerOpen}
-                        />
+  render() {
+    return (
+      <div>
+      <Router>
+        <div>
+          <AppBar
+            title="RunDay"
+            onLeftIconButtonClick={this.drawerBtnClickHandler}
+          />
 
-                        <Route exact path={'/'} component={Dashboard}/>
-                        <Route exact path={'/ListOfResults'} component={ListOfResults}/>
-                        <Route path={'/RegistrationForm'} component={RegistrationForm}/>
-                        <Route path={'/ResultsPage'} component={ResultsPage}/>
-                        <Route path={'/SearchForm'} component={SearchForm}/>
-                    </div>
-                </Router>
-            </div>
-        )
-    }
+          <div>
+            <SideBar
+              onRequestSideBarChange={this.drawerBtnClickHandler}
+              isSideBarOpen={this.state.isDrawerOpen}
+            />
+
+            <Route exact path={'/'} component={Dashboard} />
+            <Route path={'/CreateNewRun'} component={CreateNewRun} />
+            <Route path={'/ListOfRun'} component={ListOfRun} />
+          </div>
+        </div>
+      </Router>
+        <LinkButton />
+      </div>
+    )
+  }
 
 
 }
