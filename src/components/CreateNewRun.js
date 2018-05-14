@@ -25,7 +25,7 @@ class Map extends Component {
             distance: getDistanceFromLatLonInKm(this.state.markers.concat(markerData))
         })
     }
-    runNameChangeHandler = (e, value) => this.setState({ runName: value })
+    runNameChangeHandler = (e, value) => this.setState({ runName: value && value.replace(value[0], value[0].toUpperCase()) })
     newRunDataPickerHandler = (e, value) => this.setState({ runData: moment(value).format('DD-MM-YYYY') })
     runnersCountChangeHandler = (e, idx, value) => this.setState({ runners: value })
     runCategoryChangeHandler = (e, idx, value) => this.setState({ category: value })
