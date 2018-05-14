@@ -35,7 +35,7 @@ class Map extends Component {
             runName: '',
             runData: '',
             category: 'city',
-            runners: 0
+            runners: 0,
         })
         fetch('https://runday-app.firebaseio.com/runs.json',
             {
@@ -48,7 +48,8 @@ class Map extends Component {
                 category: 'city',
                 markers: [],
                 distance: '',
-                runners: 2
+                runners: 2,
+                addedRunners: ['Pawel', 'Michal']
             })))
     }
     render() {
@@ -66,7 +67,7 @@ class Map extends Component {
                                         defaultZoom={15}
                                         onClick={this.placeMarker}
                                     >
-                                        {this.state.markers.map((marker, i) => <Marker text={i + 1} lat={marker.lat} lng={marker.lng} />)}
+                                        {this.state.markers.map((marker, i) => <Marker text={i + 1} lat={marker.lat} lng={marker.lng} key={Date.now()/90}/>)}
                                     </GoogleMapReact>
                                 </div>
                             </Col>
