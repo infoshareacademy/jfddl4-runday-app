@@ -6,7 +6,7 @@ import Dashboard from './components/Dashboard'
 import CreateNewRun from './components/CreateNewRun'
 import ListOfRun from './components/ListOfRun'
 import SideBar from './components/SideBar'
-import LinkButton from './components/LinkButton';
+import LinkButton from './components/LinkButton'
 
 
 class App extends React.Component {

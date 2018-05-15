@@ -4,12 +4,16 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import './index.css';
 import App from './App';
-
+import Auth from './components/Auth'
 
 ReactDOM.render(
     <MuiThemeProvider>
-        <App />
-    </MuiThemeProvider>, document.getElementById('root'))
+        <Auth>
+            <App />
+        </Auth>
+    </MuiThemeProvider>,
+    document.getElementById('root')
+)
 
 
 
