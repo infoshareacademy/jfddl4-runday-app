@@ -3,7 +3,7 @@ import { auth } from 'firebase'
 import LoginForms from './LoginForms'
 export default class Auth extends React.Component {
   state = {
-    isLogedIn: false
+    isLogedIn: true
   }
 
   render() {

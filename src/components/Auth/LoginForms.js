@@ -1,13 +1,13 @@
 import React from 'react'
 import GoogleLogIn from './GoogleLogIn'
-import { auth, provider } from '../../firebase'
+import { auth, googleProvider } from '../../firebase'
 
 export default class LoginForms extends React.Component {
   state = {
 
 
   }
-  onGoogleLogInHandler = () => {auth.signInVithPopup(provider)}
+  onGoogleLogInHandler = () => {auth.signInWithPopup(googleProvider)}
 
   render() {
     return (

@@ -4,6 +4,7 @@ import { mapObjectToArray } from './Methods/MapObjectToArray'
 
 import Container from './UI/Container'
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { database } from '../firebase';
 
 const dataChartTwo = [
   { Name: 'Mon.', Run: 5 },
@@ -22,9 +23,10 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://runday-app.firebaseio.com/runs.json')
-      .then(r => r.json())
-      .then((run) => {
+    database.ref('/runs').on(
+      'value',
+      (snapshot) => {
+        const run = snapshot.val()
         this.setState({
           data: [
             {
@@ -39,8 +41,10 @@ class Dashboard extends React.Component {
             }],
           imBusy: false
         })
-      })
+      }
+    )
   }
+
   render() {
     if (this.state.imBusy) {
       return (<span>Loading .... </span>)

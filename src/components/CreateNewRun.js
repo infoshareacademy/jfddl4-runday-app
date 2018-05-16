@@ -53,14 +53,13 @@ class Map extends Component {
             }))
     }
     render() {
-        return (
-            // Important! Always set the container height explicitl
+        return (    
             <Container>
                 <div>
                     <Grid fluid>
                         <Row>
                             <Col xs={12} sm={12} md={9} lg={9}>
-                                <div style={{ height: '70vh', width: '100%' }}>
+                                <div style={{ height: '70vh', width: '100%' /*Important! Always set the container height explicitl*/}}>
                                     <GoogleMapReact
                                         bootstrapURLKeys={{ key: 'AIzaSyBjbSX619TpTJBp9afQKJUuueKAF9ZGawc' }}
                                         defaultCenter={{ lat: 51.246452, lng: 22.568445 }}
