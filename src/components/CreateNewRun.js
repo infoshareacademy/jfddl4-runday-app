@@ -44,29 +44,29 @@ class Map extends Component {
                 body: JSON.stringify(this.state)
             }
         ).then(this.setState({
-                runName: '',
-                runData: '',
-                category: 'city',
-                markers: [],
-                distance: '',
-                runners: 2, 
-            }))
+            runName: '',
+            runData: '',
+            category: 'city',
+            markers: [],
+            distance: '',
+            runners: 2,
+        }))
     }
     render() {
-        return (    
+        return (
             <Container>
                 <div>
                     <Grid fluid>
                         <Row>
                             <Col xs={12} sm={12} md={9} lg={9}>
-                                <div style={{ height: '70vh', width: '100%' /*Important! Always set the container height explicitl*/}}>
+                                <div style={{ height: '70vh', width: '100%' /*Important! Always set the container height explicitl*/ }}>
                                     <GoogleMapReact
                                         bootstrapURLKeys={{ key: 'AIzaSyBjbSX619TpTJBp9afQKJUuueKAF9ZGawc' }}
                                         defaultCenter={{ lat: 51.246452, lng: 22.568445 }}
                                         defaultZoom={15}
                                         onClick={this.placeMarker}
                                     >
-                                        {this.state.markers.map((marker, i) => <Marker text={i + 1} lat={marker.lat} lng={marker.lng} key={i}/>)}
+                                        {this.state.markers.map((marker, i) => <Marker text={i + 1} lat={marker.lat} lng={marker.lng} key={i} />)}
                                     </GoogleMapReact>
                                 </div>
                             </Col>
@@ -85,6 +85,7 @@ class Map extends Component {
                                 />
                                 <DatePicker
                                     floatingLabelText="Set date"
+                                    //value={this.state.runData}
                                     onChange={this.newRunDataPickerHandler}
                                     autoOk={true}
                                     formatDate={(date) => moment(date).format('DD-MM-YYYY')}

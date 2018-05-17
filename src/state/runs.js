@@ -20,7 +20,7 @@ export const initRunsSync = () => (dispatch, getState) => {
 }
 
 const initialState = {
-  runs: null
+  runList: null
 }
 
 export default (state = initialState, action) => {
@@ -28,7 +28,7 @@ export default (state = initialState, action) => {
     case SET:
       return {
         ...state,
-        runs: action.runs
+        runList: action.runs
       }
     default:
       return state
