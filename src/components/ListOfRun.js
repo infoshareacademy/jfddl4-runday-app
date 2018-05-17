@@ -1,6 +1,4 @@
 import React from 'react'
-import LocationCity from 'material-ui/svg-icons/social/location-city'
-import LocalFlorist from 'material-ui/svg-icons/maps/local-florist'
 import Pagination from 'material-ui-pagination'
 
 import SingleRunView from './SigleRunView'
@@ -53,14 +51,8 @@ class ListOfResults extends React.Component {
                                 i < ITEMS_PER_PAGE * (this.state.currentPage + 1)
                             ))
                             .map(run =>
-                                <SingleRunView
-                                    title={run.runName}
-                                    avatar={run.category === 'city' ? <LocationCity /> : <LocalFlorist />}
-                                    distance={`${run.distance.toFixed(3)} km`}
-                                    runDate={run.runData}
-                                    category={run.category}
-                                    runners={run.runners}
-                                    markers={run.markers}
+                                <SingleRunView                                    runDate={run.runData}
+                                    run={run}
                                     key={run.key}
                                 />)
                     }
