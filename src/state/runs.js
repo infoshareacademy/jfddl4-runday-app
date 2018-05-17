@@ -1,0 +1,36 @@
+import { database } from "../firebase"
+import {mapObjectToArray} from '../components/Methods/MapObjectToArray'
+
+const SET = 'runs/SET'
+
+const set = (runs) => ({
+  type: SET,
+  runs
+})
+
+export const initRunsSync = () => (dispatch, getState) => {
+  database.ref('/runs').on(
+    'value',
+    (snapshot) => dispatch(
+      set(
+        mapObjectToArray(snapshot.val())
+      )
+    )
+  )
+}
+
+const initialState = {
+  runs: null
+}
+
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case SET:
+      return {
+        ...state,
+        runs: action.runs
+      }
+    default:
+      return state
+  }
+}
