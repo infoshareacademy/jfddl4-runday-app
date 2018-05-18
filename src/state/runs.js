@@ -1,5 +1,5 @@
 import { database } from "../firebase"
-import { mapObjectToArray } from '../components/Methods/MapObjectToArray'
+import { mapObjectToArray } from '../components/methods/mapObjectToArray'
 
 const SET = 'runs/SET'
 

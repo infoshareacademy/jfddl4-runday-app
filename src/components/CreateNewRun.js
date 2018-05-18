@@ -4,7 +4,7 @@ import { TextField } from 'material-ui'
 import DatePicker from 'material-ui/DatePicker'
 import Marker from './MapMarker'
 import moment from 'moment'
-import { getDistanceFromLatLonInKm } from './Methods/getDistanceFromLatLonInKm '
+import { getDistanceFromLatLonInKm } from './methods/getDistanceFromLatLonInKm '
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import { RunnersCount, CategoryOfRun } from './RunsSelectField'
 import Container from './UI/Container'
@@ -16,7 +16,8 @@ class Map extends Component {
         category: 'city',
         markers: [],
         distance: '',
-        runners: 2
+        runners: 2,
+        busyDuringAdding:false
     }
     placeMarker = ({ lat, lng }) => {
         const markerData = { lat, lng, key: Date.now() }
@@ -32,25 +33,37 @@ class Map extends Component {
     viewDistance = () => this.state.markers.length < 2 ? 'Add two or more markers. (Just clic on the map.)' : `Distance: ${this.state.distance.toFixed(3)} km`
     saveRun = () => {
         this.setState({
-            runName: '',
-            runData: '',
-            category: 'city',
-            runners: 0,
-            addedRunners: ['Pawel', 'Michal']
+            busyDuringAdding:true
         })
         fetch('https://runday-app.firebaseio.com/runs.json',
             {
                 method: 'POST',
                 body: JSON.stringify(this.state)
             }
-        ).then(this.setState({
-            runName: '',
-            runData: '',
-            category: 'city',
-            markers: [],
-            distance: '',
-            runners: 2,
-        }))
+        )
+        .then(r=>r.json())
+        .then((data)=>{
+            console.log('data', data)
+
+            this.setState({
+                runName: '',
+                runData: '',
+                category: 'city',
+                markers: [],
+                distance: '',
+                runners: 2,
+                
+            })
+
+            setTimeout((  )=>{
+                this.setState({
+                    busyDuringAdding:false
+
+                })
+            },333)
+        }
+            
+          )
     }
     render() {
         return (
@@ -70,7 +83,8 @@ class Map extends Component {
                                     </GoogleMapReact>
                                 </div>
                             </Col>
-                            <Col xs={12} sm={12} md={3} lg={3}>
+
+                            {!this.state.busyDuringAdding ?   <Col xs={12} sm={12} md={3} lg={3}>
                                 <h2> Create new run </h2>
                                 <h4>{this.viewDistance()} </h4>
                                 <TextField
@@ -99,7 +113,7 @@ class Map extends Component {
                                     saveRun={this.saveRun}
                                     checkToAccept={(this.state.markers.length > 1 && this.state.runName && this.state.runData)}
                                 />
-                            </Col>
+                            </Col> : null}
                         </Row>
                     </Grid>
 

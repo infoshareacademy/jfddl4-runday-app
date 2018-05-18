@@ -1,6 +1,6 @@
 import React from 'react'
 import { PieChart, Pie, BarChart, XAxis, CartesianGrid, Bar, YAxis, Tooltip, Legend, Cell } from 'recharts'
-import { mapObjectToArray } from './Methods/MapObjectToArray'
+import { mapObjectToArray } from './methods/mapObjectToArray'
 
 import Container from './UI/Container'
 import { Grid, Row, Col } from 'react-flexbox-grid';
