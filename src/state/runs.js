@@ -20,7 +20,9 @@ export const initRunsSync = () => (dispatch, getState) => {
 }
 
 const initialState = {
-  runList: null
+  runList: [],
+  phrase:'',
+  sortedRunsList:[]
 }
 
 export default (state = initialState, action) => {

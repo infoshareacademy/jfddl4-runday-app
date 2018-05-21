@@ -1,6 +1,7 @@
 import React from 'react'
 import { auth } from '../../firebase'
 import LoginForms from './LoginForms'
+import { logInByGoogle } from '../../state/auth'
 export default class Auth extends React.Component {
   state = {
     isLoggedIn: false

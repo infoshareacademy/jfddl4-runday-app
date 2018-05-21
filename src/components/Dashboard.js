@@ -32,12 +32,12 @@ class Dashboard extends React.Component {
             {
               value: mapObjectToArray(run)
                 .map(run => run.category)
-                .filter(category => category === 'city').length, name: 'City runs', color: '#212121'
+                .filter(category => category === 'city').length, name: 'City runs'
             },
             {
               value: mapObjectToArray(run)
                 .map(run => run.category)
-                .filter(category => category === 'forest').length, name: 'Forest runs', color: 'green'
+                .filter(category => category === 'forest').length, name: 'Forest runs'
             }],
           imBusy: false
         })

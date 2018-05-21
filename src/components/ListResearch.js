@@ -30,6 +30,8 @@ const ListResearch = (props) => (
               <MenuItem value={''} primaryText="Chose category" />
               <MenuItem value={'forest'} primaryText="Forest runs" />
               <MenuItem value={'city'} primaryText="City runs" />
+              <MenuItem value={'user_id'} primaryText="My runs" />
+              
             </DropDownMenu>
             <br />
           </Col>
