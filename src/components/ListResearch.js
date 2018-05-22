@@ -15,8 +15,8 @@ const ListResearch = (props) => (
           <Col xs={12} sm={12} md={6} lg={6}>
             <TextField
               onChange={props.handleRunNameChangeChandler}
-              hintText="Run name"
-              floatingLabelText="Search run"
+              hintText={'Run name'}
+              floatingLabelText={'Search run'}
               fullWidth={true}
             />
           </Col>
@@ -30,6 +30,8 @@ const ListResearch = (props) => (
               <MenuItem value={''} primaryText="Chose category" />
               <MenuItem value={'forest'} primaryText="Forest runs" />
               <MenuItem value={'city'} primaryText="City runs" />
+              <MenuItem value={'user_id'} primaryText="My runs" />
+              
             </DropDownMenu>
             <br />
           </Col>

@@ -10,8 +10,8 @@ const SideBar = ({ onRequestSideBarChange, isSideBarOpen }) => (
         open={isSideBarOpen}
     >
         <Link to={'/'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Dashboard</MenuItem> </Link>    
-        <Link to={'/CreateNewRun'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Create new run</MenuItem> </Link>
-        <Link to={'/ListOfRun'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Schow List Of Runs</MenuItem> </Link>
+        <Link to={'/CreateNewRun'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Create New Run</MenuItem> </Link>
+        <Link to={'/ListOfRun'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Show List Of Runs</MenuItem> </Link>
     </Drawer>
 )
 
