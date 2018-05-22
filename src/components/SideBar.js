@@ -2,6 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
+import { ListItem } from 'material-ui/List'
+import ShowChart from 'material-ui/svg-icons/editor/insert-chart'
+import AddLocation from 'material-ui/svg-icons/maps/pin-drop'
+import ImageSearch from 'material-ui/svg-icons/notification/event-available'
 
 const SideBar = ({ onRequestSideBarChange, isSideBarOpen }) => (
     <Drawer
@@ -9,9 +13,16 @@ const SideBar = ({ onRequestSideBarChange, isSideBarOpen }) => (
         onRequestChange={onRequestSideBarChange}
         open={isSideBarOpen}
     >
-        <Link to={'/'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Dashboard</MenuItem> </Link>    
-        <Link to={'/CreateNewRun'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Create New Run</MenuItem> </Link>
-        <Link to={'/ListOfRun'} style={{ textDecoration: 'none' }}><MenuItem onClick={onRequestSideBarChange}>Show List Of Runs</MenuItem> </Link>
+        <h1 style={{ textAlign: 'center' }}>RUN DAY</h1>
+        <Link to={'/'} style={{ textDecoration: 'none' }}>
+            <ListItem leftIcon={<ShowChart />} onClick={onRequestSideBarChange}>Dashboard</ListItem >
+        </Link>
+        <Link to={'/CreateNewRun'} style={{ textDecoration: 'none' }}>
+            <ListItem leftIcon={<AddLocation />} onClick={onRequestSideBarChange}>Create New Run</ListItem>
+        </Link>
+        <Link to={'/ListOfRun'} style={{ textDecoration: 'none' }}>
+            <ListItem leftIcon={<ImageSearch />} onClick={onRequestSideBarChange}>Show List Of Runs</ListItem>
+        </Link>
     </Drawer>
 )
 

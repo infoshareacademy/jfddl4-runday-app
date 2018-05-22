@@ -2,7 +2,7 @@ import React from 'react'
 import { auth } from '../../firebase'
 import LoginForms from './LoginForms'
 import { logInByGoogle, loggedIn } from '../../state/auth'
-import {set, initRunsSync} from '../../state/runs'
+import { initRunsSync} from '../../state/runs'
 
 import {connect} from 'react-redux'
 class Auth extends React.Component {
