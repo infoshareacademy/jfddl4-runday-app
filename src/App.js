@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 import AppBar from 'material-ui/AppBar'
-
 import Dashboard from './components/Dashboard'
 import CreateNewRun from './components/CreateNewRun'
 import ListOfRun from './components/ListOfRun'
 import SideBar from './components/SideBar'
 import LinkButton from './components/LinkButton'
-
+import { FlatButton, RaisedButton } from 'material-ui';
+import { logOut } from './state/auth'
 
 class App extends React.Component {
 
@@ -28,6 +29,7 @@ class App extends React.Component {
             <AppBar
               title="RunDay"
               onLeftIconButtonClick={this.drawerBtnClickHandler}
+              iconElementRight={<FlatButton onClick={this.props.logOut} label="Log out" />}
             />
 
             <div>
@@ -49,6 +51,10 @@ class App extends React.Component {
 
 
 }
+const mapDispatchToProps = dispatch => ({
+  logOut: () => dispatch(logOut()),
+})
 
-
-export default App;
+export default connect(
+  null,
+  mapDispatchToProps)(App) 

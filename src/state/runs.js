@@ -3,21 +3,10 @@ import { mapObjectToArray } from '../components/methods/mapObjectToArray'
 
 const SET = 'runs/SET'
 
-const set = (runs) => ({
+export const set = (runs) => ({
   type: SET,
   runs
 })
-
-export const initRunsSync = () => (dispatch, getState) => {
-  database.ref('/runs').on(
-    'value',
-    (snapshot) => dispatch(
-      set(
-        mapObjectToArray(snapshot.val())
-      )
-    )
-  )
-}
 
 const initialState = {
   runList: [],
@@ -35,4 +24,15 @@ export default (state = initialState, action) => {
     default:
       return state
   }
+}
+
+export const initRunsSync = () => (dispatch, getState) => {
+  database.ref('/runs').on(
+    'value',
+    (snapshot) => dispatch(
+      set(
+        mapObjectToArray(snapshot.val())
+      )
+    )
+  )
 }

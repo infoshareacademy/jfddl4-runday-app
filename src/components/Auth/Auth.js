@@ -1,20 +1,28 @@
 import React from 'react'
 import { auth } from '../../firebase'
 import LoginForms from './LoginForms'
-import { logInByGoogle } from '../../state/auth'
-export default class Auth extends React.Component {
+import { logInByGoogle, loggedIn } from '../../state/auth'
+import {set, initRunsSync} from '../../state/runs'
+
+import {connect} from 'react-redux'
+class Auth extends React.Component {
   state = {
     isLoggedIn: false
   }
   componentDidMount() {
     auth.onAuthStateChanged(
         user => {
-          console.log('onAuthStateChanged', user, this)
+          console.log('onAuthStateChanged', user,  this.props.auth  )
+         
             if (user) {
-
-                this.setState({ isLoggedIn: true })
+               this.props.actions.login(user)
+               this.props.actions.initNewRuns()
+               ///
+               console.log('onAuthStateChanged',   this.props  )
+              
+                // this.setState({ isLoggedIn: true })
             } else {
-                this.setState({ isLoggedIn: false })
+                // this.setState({ isLoggedIn: false })
             }
         }
     )
@@ -24,7 +32,7 @@ export default class Auth extends React.Component {
     return (
       <div>
         {
-          this.state.isLoggedIn ?
+         this.props.auth.isLoggedIn ?
             this.props.children
             :
             <LoginForms />
@@ -34,3 +42,11 @@ export default class Auth extends React.Component {
   }
 }
 
+const mapStateToProps = (state)=>({ ...state })
+
+const mapDispatchToProps = (dispatch)=>({actions:{
+  login:(user)=>dispatch(loggedIn(user)),
+  initNewRuns:()=>initRunsSync()(dispatch)
+}})
+
+export default connect(mapStateToProps,mapDispatchToProps)(Auth)

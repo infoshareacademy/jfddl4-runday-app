@@ -4,7 +4,6 @@ import thunk from 'redux-thunk'
 import runs, {initRunsSync} from './state/runs'
 import auth, {initAuthUserSync, } from './state/auth'
 
-
 const reducer = combineReducers({
     runs,
     auth
@@ -19,4 +18,4 @@ export const store = createStore(
     )
 )
 
-store.dispatch(initRunsSync())
+// store.dispatch(initRunsSync())
