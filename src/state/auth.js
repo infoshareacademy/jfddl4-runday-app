@@ -42,7 +42,7 @@ export const initAuthUserSync = () => (dispatch, getState) => {
         user => {
             if (user) {
                 dispatch(loggedIn(user))
-                logUserLogIn(getState) 
+                logUserLogIn(getState)
             } else {
                 dispatch(loggedOut())
             }

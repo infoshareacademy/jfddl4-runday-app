@@ -1,7 +1,7 @@
 import React from 'react'
 import { auth } from '../../firebase'
 import LoginForms from './LoginForms'
-import { logInByGoogle, loggedIn } from '../../state/auth'
+import { logInByGoogle, loggedIn, initAuthUserSync } from '../../state/auth'
 import { initRunsSync} from '../../state/runs'
 
 import {connect} from 'react-redux'
@@ -45,7 +45,7 @@ class Auth extends React.Component {
 const mapStateToProps = (state)=>({ ...state })
 
 const mapDispatchToProps = (dispatch)=>({actions:{
-  login:(user)=>dispatch(loggedIn(user)),
+  login:(user)=>dispatch(initAuthUserSync(user)),
   initNewRuns:()=>initRunsSync()(dispatch)
 }})
 
