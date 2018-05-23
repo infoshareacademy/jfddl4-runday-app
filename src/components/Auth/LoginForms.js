@@ -5,40 +5,46 @@ import GoogleLogIn from './GoogleLogIn'
 import firebase from 'firebase'
 import { auth, googleProvider } from '../../firebase'
 import Container from '../UI/Container';
+import CreateUserByEmailAndPassword from './CreateUserByEmailAndPassword';
+import LogInByEmailAndPassword from './LogInByEmailAndPassword';
+import { connect } from 'react-redux';
+import { logInByGoogle } from '../../state/auth';
 
-export default class LoginForms extends React.Component {
+class LoginForms extends React.Component {
   state = {
-
-
   }
   onGoogleLogInHandler = () => {
-
-
-    auth.signInWithPopup(googleProvider).then((user) => {
-      console.log('auth', user)
-    })
-      .catch((err) => {
-        console.log('auth err', err)
-
-      })
-
-
+    this.props.logInByGoogle();
+    // auth.signInWithPopup(googleProvider)
+    //   .then((user) => {
+    //     console.log('auth', user)
+    //   })
+    //   .catch((err) => {
+    //     console.log('auth err', err)
+    //   })
   }
 
   render() {
     return (
       <Container>
         <Tabs>
-          <Tab label="Login" >
+          <Tab label="Login" style={{background: '#689F38'}} >
+            <LogInByEmailAndPassword />
             <GoogleLogIn
               onGoogleLogInHandler={() => { this.onGoogleLogInHandler() }}
             />
           </Tab>
-          <Tab label='Register'>
-            <h1>Hello from registers</h1>
+          <Tab label='Register' style={{background: '#B71C1C'}}>
+            <CreateUserByEmailAndPassword />
           </Tab>
         </Tabs>
       </Container>
     )
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  logInByGoogle: () => dispatch(logInByGoogle()),
+})
+
+export default connect(null, mapDispatchToProps)(LoginForms);

@@ -20,7 +20,6 @@ class App extends React.Component {
     isDrawerOpen: !this.state.isDrawerOpen
   })
 
-
   render() {
     return (
       <div>
@@ -48,8 +47,6 @@ class App extends React.Component {
       </div>
     )
   }
-
-
 }
 const mapDispatchToProps = dispatch => ({
   logOut: () => dispatch(logOut()),

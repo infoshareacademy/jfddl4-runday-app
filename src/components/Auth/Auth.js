@@ -6,9 +6,6 @@ import { initRunsSync} from '../../state/runs'
 
 import {connect} from 'react-redux'
 class Auth extends React.Component {
-  state = {
-    isLoggedIn: false
-  }
   componentDidMount() {
     auth.onAuthStateChanged(
         user => {
@@ -19,10 +16,6 @@ class Auth extends React.Component {
                this.props.actions.initNewRuns()
                ///
                console.log('onAuthStateChanged',   this.props  )
-              
-                // this.setState({ isLoggedIn: true })
-            } else {
-                // this.setState({ isLoggedIn: false })
             }
         }
     )

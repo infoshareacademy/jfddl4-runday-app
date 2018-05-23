@@ -30,7 +30,6 @@ export default (state = initialState, action) => {
     }
 }
 
-
 export const logUserLogIn = (getState) => {
     const userUid = getState().auth.user.uid
     database.ref(`/users/${userUid}/loginsLogs`)
@@ -40,18 +39,21 @@ export const logUserLogIn = (getState) => {
 export const initAuthUserSync = () => (dispatch, getState) => {
     auth.onAuthStateChanged(
         user => {
-            if (user) {
-                dispatch(loggedIn(user))
-                logUserLogIn(getState)
-            } else {
-                dispatch(loggedOut())
-            }
+            // if (user) {
+            //     dispatch(loggedIn(user))
+            //     logUserLogIn(getState)
+            // } else {
+            //     // dispatch(loggedOut())
+            // }
         }
     )
 }
 
 export const logInByGoogle = () => (dispatch, getState) => {
-    auth.signInWithPopup(googleProvider)
+    auth.signInWithPopup(googleProvider).then(result => {
+        dispatch(loggedIn(result.user))
+        logUserLogIn(getState)
+    })
 }
 
 export const logOut = () => (dispatch, getState) => {
