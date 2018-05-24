@@ -2,6 +2,7 @@ import React from 'react'
 
 import { TextField, RaisedButton } from 'material-ui'
 import Container from '../UI/Container';
+import GoogleLogIn from './GoogleLogIn';
 
 const LogInByEmailAndPassword = (props) => (
   <Container>
@@ -22,9 +23,15 @@ const LogInByEmailAndPassword = (props) => (
       onChange={props.onPasswordChange}
       fullWidth={true}
     />
+
     <RaisedButton
       label={'Login!'}
       onClick={props.onLogInClick}
+    />
+    <h2> Log in by Google! </h2>
+    <GoogleLogIn 
+    onGoogleLogInHandler={props.onGoogleLogInHandler}
+    
     />
   </Container>
 )

@@ -7,7 +7,7 @@ import CreateNewRun from './components/CreateNewRun'
 import ListOfRun from './components/ListOfRun'
 import SideBar from './components/SideBar'
 import LinkButton from './components/LinkButton'
-import { FlatButton, RaisedButton } from 'material-ui';
+import { FlatButton } from 'material-ui';
 import { logOut } from './state/auth'
 
 class App extends React.Component {

@@ -53,7 +53,7 @@ class Dashboard extends React.Component {
       <div>
         <Container>
           <Grid>
-            <Row center="xs">
+            <Row xs="center">
               <Col xs={12} sm={12} md={6} lg={6}>
                 <div style={{ textAlign: 'center' }}>
                   <h2>Running Category </h2>
