@@ -1,6 +1,5 @@
 import React from 'react'
 import { Tabs, Tab } from 'material-ui/Tabs';
-import { auth } from '../../firebase'
 import Container from '../UI/Container';
 import CreateUserByEmailAndPassword from './CreateUserByEmailAndPassword';
 import LogInByEmailAndPassword from './LogInByEmailAndPassword';

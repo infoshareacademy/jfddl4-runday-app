@@ -64,6 +64,10 @@ export const logUserLogIn = (getState) => {
         .push({ timestamp: Date.now() })
 }
 
+export const getAllUsers1 = () => {
+    return database.ref(`/users`).once(`value`)
+    
+}
 
 export const logInByGoogle = () => (dispatch, getState) => {
     auth.signInWithPopup(googleProvider)
@@ -118,3 +122,5 @@ export const createUser = (email, password, passwordRetyped) => (dispatch, getSt
         dispatch(handleInternalError('Passwords do not match'))
     }
 }
+
+

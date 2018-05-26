@@ -2,7 +2,6 @@ import React from 'react'
 import Pagination from 'material-ui-pagination'
 
 import SingleRunView from './SigleRunView'
-import { mapObjectToArray } from './methods/mapObjectToArray'
 import ListResearch from './ListResearch'
 
 import { connect } from 'react-redux'

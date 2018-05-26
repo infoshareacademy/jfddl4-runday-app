@@ -1,8 +1,8 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 
-import runs, {initRunsSync} from './state/runs'
-import auth, {initAuthUserSync, } from './state/auth'
+import runs from './state/runs'
+import auth from './state/auth'
 
 const reducer = combineReducers({
     runs,
@@ -18,4 +18,3 @@ export const store = createStore(
     )
 )
 
-// store.dispatch(initRunsSync())

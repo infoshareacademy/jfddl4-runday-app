@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Drawer from 'material-ui/Drawer'
-import MenuItem from 'material-ui/MenuItem'
 import { ListItem } from 'material-ui/List'
 import ShowChart from 'material-ui/svg-icons/editor/insert-chart'
 import AddLocation from 'material-ui/svg-icons/maps/pin-drop'
