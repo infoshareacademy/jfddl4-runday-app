@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 
 import runs from './state/runs'
 import userLogins, {initLoginSync} from './state/userLogins'
-import auth from './state/auth'
+import auth, {initAuthUserSync} from './state/auth'
 
 const reducer = combineReducers({
     runs,
@@ -21,3 +21,4 @@ export const store = createStore(
 )
 
 store.dispatch(initLoginSync())
+store.dispatch(initAuthUserSync())

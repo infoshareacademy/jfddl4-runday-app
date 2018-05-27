@@ -58,39 +58,33 @@ export default (state = initialState, action) => {
     }
 }
 
-export const logUserLogIn = (getState) => {
-    const userUid = auth.currentUser.uid;
+const logUserLogIn = () => (dispatch, getState) => {
+    const userUid = auth.currentUser.uid
     database.ref(`/users/${userUid}/loginsLogs`)
         .push({ timestamp: Date.now() })
 }
 
 export const getAllUsers1 = () => {
     return database.ref(`/users`).once(`value`)
-
 }
 
 export const logInByGoogle = () => (dispatch, getState) => {
     auth.signInWithPopup(googleProvider)
-        .then(result => {
-            dispatch(loggedIn(result.user))
-            logUserLogIn(getState)
-        })
 }
 
 export const logOut = () => (dispatch, getState) => {
     auth.signOut()
-        .then(() => dispatch(loggedOut()))
 }
 
 export const initAuthUserSync = () => (dispatch, getState) => {
     auth.onAuthStateChanged(
         user => {
-            // if (user) {
-            //     dispatch(loggedIn(user))
-            //     logUserLogIn(getState)
-            // } else {
-            //     // dispatch(loggedOut())
-            // }
+            if (user) {
+                dispatch(loggedIn(user))
+                dispatch(logUserLogIn())
+            } else {
+                dispatch(loggedOut())
+            }
         }
     )
 }
@@ -101,10 +95,6 @@ export const logInByMailAndPass = (email, password) => (dispatch, getState) => {
         dispatch(handleInternalError('Email is required'))
     } else {
         auth.signInWithEmailAndPassword(email, password)
-            .then(user => {
-                dispatch(loggedIn(user));
-                logUserLogIn(getState);
-            })
             .catch(error => dispatch(handleExternalError(error)))
     }
 }
@@ -122,14 +112,3 @@ export const createUser = (email, password, passwordRetyped) => (dispatch, getSt
         dispatch(handleInternalError('Passwords do not match'))
     }
 }
-
-
-export const loggedInUser = (dispatch, getState) =>
-    auth.onAuthStateChanged(
-        user => {
-            if (user) {
-                dispatch(loggedIn(user))
-            } else {
-                dispatch(loggedOut)
-            }
-        })

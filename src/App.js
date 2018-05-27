@@ -8,21 +8,12 @@ import ListOfRun from './components/ListOfRun'
 import SideBar from './components/SideBar'
 import LinkButton from './components/LinkButton'
 import { FlatButton } from 'material-ui';
-import { logOut, getAllUsers1, loggedInUser } from './state/auth'
-import { auth } from './firebase'
-import { mapObjectToArray } from './components/methods/mapObjectToArray';
-
+import { logOut, getAllUsers1 } from './state/auth'
 
 class App extends React.Component {
-
   state = {
     isDrawerOpen: false,
     allUsersLogs: []
-  }
-
-  componentDidMount() {
-
-
   }
 
   drawerBtnClickHandler = () => this.setState({
@@ -31,11 +22,13 @@ class App extends React.Component {
 
   render() {
     console.log(this.props.user)
+
     return (
       <div>
         <Router>
           <div>
             <AppBar
+
               title="RunDay"
               onLeftIconButtonClick={this.drawerBtnClickHandler}
               iconElementRight={<FlatButton onClick={this.props.logOut} label="Log out" />}
@@ -43,6 +36,7 @@ class App extends React.Component {
 
             <div>
               <SideBar
+                user={this.props.user.displayName || this.props.user.email}
                 onRequestSideBarChange={this.drawerBtnClickHandler}
                 isSideBarOpen={this.state.isDrawerOpen}
               />

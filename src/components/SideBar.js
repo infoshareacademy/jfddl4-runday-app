@@ -5,13 +5,15 @@ import { ListItem } from 'material-ui/List'
 import ShowChart from 'material-ui/svg-icons/editor/insert-chart'
 import AddLocation from 'material-ui/svg-icons/maps/pin-drop'
 import ImageSearch from 'material-ui/svg-icons/notification/event-available'
+import { Avatar } from 'material-ui';
 
-const SideBar = ({ onRequestSideBarChange, isSideBarOpen }) => (
+const SideBar = ({ user, onRequestSideBarChange, isSideBarOpen }) => (
     <Drawer
         docked={false}
         onRequestChange={onRequestSideBarChange}
         open={isSideBarOpen}
-    >
+    >   
+        <h2 style={{textAlign: 'center'}}>{user}</h2>
         <h1 style={{ textAlign: 'center' }}>RUN DAY</h1>
         <Link to={'/'} style={{ textDecoration: 'none' }}>
             <ListItem leftIcon={<ShowChart />} onClick={onRequestSideBarChange}>Dashboard</ListItem >
