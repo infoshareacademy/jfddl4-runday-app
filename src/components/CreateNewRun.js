@@ -9,6 +9,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid'
 import { RunnersCount, CategoryOfRun } from './RunsSelectField'
 import Container from './UI/Container'
 import AddRunSnackbar from './CreateRunSnackbar'
+import style, { styleColors } from '../style'
 class Map extends Component {
     state = {
         runName: '',
@@ -81,36 +82,40 @@ class Map extends Component {
                             </Col>
                             {
                                 !this.state.busyDuringAdding ? <Col xs={12} sm={12} md={3} lg={3}>
-                                <h2> Create new run </h2>
-                                <h4>{this.viewDistance()} </h4>
-                                <TextField
-                                    floatingLabelText={'Run name'}
-                                    value={this.state.runName}
-                                    onChange={this.runNameChangeHandler}
-                                    fullWidth={true}
-                                />
-                                <CategoryOfRun
-                                    category={this.state.category}
-                                    onSelectChange={this.runCategoryChangeHandler}
-                                />
-                                <DatePicker
-                                    floatingLabelText="Set date"
-                                    //value={this.state.runData}
-                                    onChange={this.newRunDataPickerHandler}
-                                    autoOk={true}
-                                    formatDate={(date) => moment(date).format('DD-MM-YYYY')}
-                                    fullWidth={true}
-                                />
-                                <RunnersCount
-                                    runners={this.state.runners}
-                                    onSelectChange={this.runnersCountChangeHandler}
-                                />
-                                <AddRunSnackbar
-                                    saveRun={this.saveRun}
-                                    checkToAccept={(this.state.markers.length > 1 && this.state.runName && this.state.runData)}
-                                />
-                            </Col> 
-                            : null}
+                                    <div style={style.containerCreteRun}>
+                                        <h2> Create new run </h2>
+                                        <h4>{this.viewDistance()} </h4>
+                                        <TextField
+                                            floatingLabelText={'Run name'}
+                                            value={this.state.runName}
+                                            onChange={this.runNameChangeHandler}
+                                            fullWidth={true}
+                                            floatingLabelFocusStyle={{ color: styleColors.blue }}
+                                            underlineFocusStyle={{ borderColor: styleColors.blue }}
+                                        />
+                                    </div>
+                                    <CategoryOfRun
+                                        category={this.state.category}
+                                        onSelectChange={this.runCategoryChangeHandler}
+                                    />
+                                    <DatePicker
+                                        floatingLabelText="Set date"
+                                        //value={this.state.runData}
+                                        onChange={this.newRunDataPickerHandler}
+                                        autoOk={true}
+                                        formatDate={(date) => moment(date).format('DD-MM-YYYY')}
+                                        fullWidth={true}
+                                    />
+                                    <RunnersCount
+                                        runners={this.state.runners}
+                                        onSelectChange={this.runnersCountChangeHandler}
+                                    />
+                                    <AddRunSnackbar
+                                        saveRun={this.saveRun}
+                                        checkToAccept={(this.state.markers.length > 1 && this.state.runName && this.state.runData)}
+                                    />
+                                </Col>
+                                    : null}
                         </Row>
                     </Grid>
                 </div>

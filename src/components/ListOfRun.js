@@ -24,13 +24,14 @@ class ListOfResults extends React.Component {
     handleCategoryChangeChandler = (e, idx, value) => this.setState({ category: value })
 
     render() {
+       
         const listOfRuns = this.props.runList && this.props.runList
             .filter(nam => nam.runName.toLowerCase().indexOf(this.state.runName.toLowerCase()) !== -1)
             .filter(dist => dist.distance < this.state.distance)
             .filter(cat => this.state.category === '' ? true : cat.category === this.state.category)
 
         const numberOfRuns = listOfRuns && listOfRuns.length
-
+        console.log(this.props.runList)
         return this.props.runList === null ?
             <span>Loading .... </span>
             :

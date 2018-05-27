@@ -10,8 +10,7 @@ export const set = (runs) => ({
 
 const initialState = {
   runList: [],
-  phrase:'',
-  sortedRunsList:[]
+
 }
 
 export default (state = initialState, action) => {
@@ -36,3 +35,4 @@ export const initRunsSync = () => (dispatch, getState) => {
     )
   )
 }
+

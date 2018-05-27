@@ -1,12 +1,12 @@
 import React from 'react'
 import { PieChart, Pie, BarChart, XAxis, CartesianGrid, Bar, YAxis, Tooltip, Legend, Cell } from 'recharts'
-import { mapObjectToArray } from './methods/mapObjectToArray'
 import moment from 'moment'
-
+import { connect } from 'react-redux'
+import { Grid, Row, Col } from 'react-flexbox-grid'
+import { mapObjectToArray } from './methods/mapObjectToArray'
 import Container from './UI/Container'
-import { Grid, Row, Col } from 'react-flexbox-grid';
-import { database } from '../firebase';
-import {connect} from 'react-redux'
+import { database } from '../firebase'
+import { styleColors } from '../style'
 
 class Dashboard extends React.Component {
   state = {
@@ -25,12 +25,12 @@ class Dashboard extends React.Component {
             {
               value: mapObjectToArray(run)
                 .map(run => run.category)
-                .filter(category => category === 'city').length, name: 'City runs'
+                .filter(category => category === 'city').length, name: 'City runs', color: styleColors.yellow
             },
             {
               value: mapObjectToArray(run)
                 .map(run => run.category)
-                .filter(category => category === 'forest').length, name: 'Forest runs'
+                .filter(category => category === 'forest').length, name: 'Forest runs', color: styleColors.red
             }],
           imBusy: false
         })
@@ -84,7 +84,7 @@ class Dashboard extends React.Component {
 const makeDataToChart = (logins = {}) => {
   let results = []
 
-  for(let i = 0; i<7; i++){
+  for (let i = 0; i < 7; i++) {
     let key = moment().subtract(i, 'days').format('YYYY-MM-DD')
     results.push(
       { Name: key, Users: logins[key] || 0 }

@@ -1,11 +1,13 @@
 import React from 'react'
 import { Tabs, Tab } from 'material-ui/Tabs';
+import MapsPersonPin from 'material-ui/svg-icons/maps/person-pin'
+import PersonAdd from 'material-ui/svg-icons/social/person-add'
 import Container from '../UI/Container';
 import CreateUserByEmailAndPassword from './CreateUserByEmailAndPassword';
 import LogInByEmailAndPassword from './LogInByEmailAndPassword';
 import { connect } from 'react-redux';
 import { logInByGoogle, logInByMailAndPass, createUser } from '../../state/auth';
-
+import style from '../../style'
 class LoginForms extends React.Component {
   state = {
     logInEmail: '',
@@ -25,34 +27,42 @@ class LoginForms extends React.Component {
   render() {
     return (
       <Container>
-        <Tabs>
-          <Tab label="Login" style={{ background: '#689F38' }} >
-            <LogInByEmailAndPassword
-              emailValue={this.state.logInEmail}
-              onEmailChange={this.onLogInEmailChange}
-              passwordValue={this.state.logInPassword}
-              onPasswordChange={this.onLogInPasswodChange}
-              onLogInClick={
-                () => { this.props.logInByEmailAndPassword(this.state.logInEmail, this.state.logInPassword) 
-                }}
-              onGoogleLogInHandler={() => { this.onGoogleLogInHandler() }}
-            />
-          </Tab>
-          <Tab label='Register' style={{ background: '#B71C1C' }}>
-            <CreateUserByEmailAndPassword
-              emailValue={this.state.createUserEmail}
-              onEmailChange={this.onCreateUserEmailChange}
-              passwordValue={this.state.createUserPassword}
-              onPasswordChange={this.onCreateUserPasswodChange}
-              retypePasswordValue={this.state.createUserRetypePassword}
-              onRetypePasswordChange={this.onCreateUserRetypePasswodChange}
-              onRegisterClick={() => 
-                this.props.createUserByEmailAndPassword(
-                  this.state.createUserEmail, this.state.createUserPassword, this.state.createUserRetypePassword)
-              }
-            />
-          </Tab>
-        </Tabs>
+        <div style={style.containerLoginForms}>
+          <h2>Run Day</h2>
+          <Tabs>
+            <Tab
+              icon={<MapsPersonPin />}
+              label="Login" style={style.loginStyle} >
+              <LogInByEmailAndPassword
+                emailValue={this.state.logInEmail}
+                onEmailChange={this.onLogInEmailChange}
+                passwordValue={this.state.logInPassword}
+                onPasswordChange={this.onLogInPasswodChange}
+                onLogInClick={
+                  () => {
+                    this.props.logInByEmailAndPassword(this.state.logInEmail, this.state.logInPassword)
+                  }}
+                onGoogleLogInHandler={() => { this.onGoogleLogInHandler() }}
+              />
+            </Tab>
+            <Tab
+              icon={<PersonAdd />}
+              label='Register' style={style.registerStyle}>
+              <CreateUserByEmailAndPassword
+                emailValue={this.state.createUserEmail}
+                onEmailChange={this.onCreateUserEmailChange}
+                passwordValue={this.state.createUserPassword}
+                onPasswordChange={this.onCreateUserPasswodChange}
+                retypePasswordValue={this.state.createUserRetypePassword}
+                onRetypePasswordChange={this.onCreateUserRetypePasswodChange}
+                onRegisterClick={() =>
+                  this.props.createUserByEmailAndPassword(
+                    this.state.createUserEmail, this.state.createUserPassword, this.state.createUserRetypePassword)
+                }
+              />
+            </Tab>
+          </Tabs>
+        </div>
       </Container>
     )
   }
