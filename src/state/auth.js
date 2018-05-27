@@ -66,7 +66,7 @@ export const logUserLogIn = (getState) => {
 
 export const getAllUsers1 = () => {
     return database.ref(`/users`).once(`value`)
-    
+
 }
 
 export const logInByGoogle = () => (dispatch, getState) => {
@@ -95,17 +95,17 @@ export const initAuthUserSync = () => (dispatch, getState) => {
     )
 }
 export const logInByMailAndPass = (email, password) => (dispatch, getState) => {
-    if (email && password) {
+    if (!password) {
+        dispatch(handleInternalError('Password is required'))
+    } else if (!email) {
+        dispatch(handleInternalError('Email is required'))
+    } else {
         auth.signInWithEmailAndPassword(email, password)
             .then(user => {
                 dispatch(loggedIn(user));
                 logUserLogIn(getState);
             })
             .catch(error => dispatch(handleExternalError(error)))
-    } else if (!password) {
-        dispatch(handleInternalError('Password is required'))
-    } else if (!email) {
-        dispatch(handleInternalError('Email is required'))
     }
 }
 
@@ -124,3 +124,12 @@ export const createUser = (email, password, passwordRetyped) => (dispatch, getSt
 }
 
 
+export const loggedInUser = (dispatch, getState) =>
+    auth.onAuthStateChanged(
+        user => {
+            if (user) {
+                dispatch(loggedIn(user))
+            } else {
+                dispatch(loggedOut)
+            }
+        })
