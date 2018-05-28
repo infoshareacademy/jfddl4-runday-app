@@ -17,7 +17,7 @@ export default class AddRunSnackbar extends React.Component {
             open: true
         })
     }
-    handleRequestClose = () => this.setState({ open: false })
+    handleRequestClose = () => this.setState({ open: true })
 
     render() {
         return (

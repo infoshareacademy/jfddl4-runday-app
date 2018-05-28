@@ -65,8 +65,7 @@ class Dashboard extends React.Component {
               <Col xs={12} sm={12} md={12} lg={6}>
                 <h2 style={{ textAlign: 'center' }}>Daily Users Logs </h2>
                 <BarChart width={window.innerWidth < 700 ? 300 : 600} height={window.innerWidth < 700 ? 200 : 400} data={this.props.logins}
-                  margin={{ top: 10, right: 5, left: 5, bottom: 5 }} style={{ float: 'left' }}
-                  style={{ marginLeft: 'auto', marginRight: 'auto' }}>
+                  margin={{ top: 10, right: 5, left: 5, bottom: 5 }} style={{float: 'left', marginLeft: 'auto', marginRight: 'auto' }}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="Name" />
                   <YAxis />
