@@ -5,6 +5,7 @@ import SingleRunView from './SigleRunView'
 import ListResearch from './ListResearch'
 
 import { connect } from 'react-redux'
+import { addUserToRun } from '../state/runs'
 
 const ITEMS_PER_PAGE = 10
 
@@ -31,7 +32,6 @@ class ListOfResults extends React.Component {
             .filter(cat => this.state.category === '' ? true : cat.category === this.state.category)
 
         const numberOfRuns = listOfRuns && listOfRuns.length
-        console.log(this.props.runList)
         return this.props.runList === null ?
             <span>Loading .... </span>
             :
@@ -51,9 +51,11 @@ class ListOfResults extends React.Component {
                                 i < ITEMS_PER_PAGE * (this.state.currentPage + 1)
                             ))
                             .map(run =>
-                                <SingleRunView                                    runDate={run.runData}
+                                <SingleRunView
+                                    runDate={run.runData}
                                     run={run}
                                     key={run.key}
+                                    onAdRunner={()=> this.props.addUserToRun(run.key)}
                                 />)
                     }
                 </div>
@@ -72,5 +74,8 @@ class ListOfResults extends React.Component {
 export default connect(
     state => ({
         runList: state.runs.runList
+    }),
+    dispatch => ({
+        addUserToRun: runID => dispatch(addUserToRun(runID))
     })
 )(ListOfResults)

@@ -6,10 +6,10 @@ import style, { styleColors } from '../../style'
 const GoogleLogIn = (props) =>
   <div>
     <RaisedButton
-      backgroundColor={styleColors.red}
+      backgroundColor={styleColors.danger}
       label={'Sign In With Google'}
       onClick={props.onGoogleLogInHandler}
-      labelColor ={styleColors.white}
+      labelColor ={styleColors.standard}
       labelStyle={style.labelStyle}
     />
   </div>

@@ -21,8 +21,8 @@ const LogInByEmailAndPassword = (props) => (
           value={props.emailValue}
           onChange={props.onEmailChange}
           style={style.textFieldMargin}
-          floatingLabelFocusStyle={{ color: styleColors.blue }}
-          underlineFocusStyle={{ borderColor: styleColors.blue }}
+          floatingLabelFocusStyle={{ color: styleColors.seondary }}
+          underlineFocusStyle={{ borderColor: styleColors.secondary }}
         />
       </div>
       <div style={style.textFieldAlign}>
@@ -34,8 +34,8 @@ const LogInByEmailAndPassword = (props) => (
           value={props.passwordValue}
           onChange={props.onPasswordChange}
           style={style.textFieldMargin}
-          floatingLabelFocusStyle={{ color: styleColors.blue }}
-          underlineFocusStyle={{ borderColor: styleColors.blue }}
+          floatingLabelFocusStyle={{ color: styleColors.secondary }}
+          underlineFocusStyle={{ borderColor: styleColors.secondary }}
         />
       </div>
       <RaisedButton
@@ -43,7 +43,7 @@ const LogInByEmailAndPassword = (props) => (
         style={style.loginButtonFill}
         label={'Login!'}
         onClick={props.onLogInClick}
-        labelColor={styleColors.white}
+        labelColor={styleColors.standard}
         labelStyle={style.labelStyle}
       />
       <Divider />

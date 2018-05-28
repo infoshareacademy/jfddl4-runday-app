@@ -20,8 +20,8 @@ const CreateUserByEmailAndPassword = (props) => (
                     value={props.emailValue}
                     onChange={props.onEmailChange}
                     style={style.textFieldMargin}
-                    floatingLabelFocusStyle={{ color: styleColors.blue }}
-                    underlineFocusStyle={{ borderColor: styleColors.blue }}
+                    floatingLabelFocusStyle={{ color: styleColors.secondary }}
+                    underlineFocusStyle={{ borderColor: styleColors.secondary }}
                 />
             </div>
             <div style={style.textFieldAlign}>
@@ -33,8 +33,8 @@ const CreateUserByEmailAndPassword = (props) => (
                     value={props.passwordValue}
                     onChange={props.onPasswordChange}
                     style={style.textFieldMargin}
-                    floatingLabelFocusStyle={{ color: styleColors.blue }}
-                    underlineFocusStyle={{ borderColor: styleColors.blue }}
+                    floatingLabelFocusStyle={{ color: styleColors.secondary }}
+                    underlineFocusStyle={{ borderColor: styleColors.secondary }}
                 />
             </div>
             <div style={style.textFieldAlign}>
@@ -46,16 +46,16 @@ const CreateUserByEmailAndPassword = (props) => (
                     value={props.retypePasswordValue}
                     onChange={props.onRetypePasswordChange}
                     style={style.textFieldMargin}
-                    floatingLabelFocusStyle={{ color: styleColors.blue }}
-                    underlineFocusStyle={{ borderColor: styleColors.blue }}
+                    floatingLabelFocusStyle={{ color: styleColors.secondary }}
+                    underlineFocusStyle={{ borderColor: styleColors.secondary }}
                 />
             </div>
             <RaisedButton
                 label={'Register!'}
                 style={style.loginButtonFill}
                 onClick={props.onRegisterClick}
-                backgroundColor={styleColors.green}
-                labelColor={styleColors.white}
+                backgroundColor={styleColors.primary}
+                labelColor={styleColors.standard}
                 labelStyle={style.labelStyle}
             />
         </div>

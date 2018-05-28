@@ -6,7 +6,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid'
 import { mapObjectToArray } from './methods/mapObjectToArray'
 import Container from './UI/Container'
 import { database } from '../firebase'
-import { styleColors } from '../style'
+import style, { styleColors } from '../style'
 
 class Dashboard extends React.Component {
   state = {
@@ -25,12 +25,12 @@ class Dashboard extends React.Component {
             {
               value: mapObjectToArray(run)
                 .map(run => run.category)
-                .filter(category => category === 'city').length, name: 'City runs', color: styleColors.yellow
+                .filter(category => category === 'city').length, name: 'City runs', color: styleColors.primary
             },
             {
               value: mapObjectToArray(run)
                 .map(run => run.category)
-                .filter(category => category === 'forest').length, name: 'Forest runs', color: styleColors.red
+                .filter(category => category === 'forest').length, name: 'Forest runs', color: styleColors.danger
             }],
           imBusy: false
         })
@@ -48,7 +48,7 @@ class Dashboard extends React.Component {
           <Grid>
             <Row xs="center">
               <Col xs={12} sm={12} md={12} lg={6}>
-                <div style={{ textAlign: 'center' }}>
+                <div style={style.containerChart}>
                   <h2>Running Category </h2>
                   <PieChart width={500} height={500}>
                     <Pie
@@ -65,7 +65,7 @@ class Dashboard extends React.Component {
               <Col xs={12} sm={12} md={12} lg={6}>
                 <h2 style={{ textAlign: 'center' }}>Daily Users Logs </h2>
                 <BarChart width={600} height={400} data={this.props.logins}
-                  margin={{ top: 5, right: 30, left: 20, bottom: 5 }} style={{ float: 'left' }}>
+                  margin={{ top: 5, right: 5, left: 30, bottom: 5 }} style={{ float: 'left' }}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="Name" />
                   <YAxis />

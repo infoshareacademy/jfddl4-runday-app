@@ -36,3 +36,12 @@ export const initRunsSync = () => (dispatch, getState) => {
   )
 }
 
+export const addUserToRun = (runUID) => (dispatch, getState) => {
+
+  const userUID =  getState().auth.user.email
+
+  console.log(runUID, userUID)
+
+  database.ref(`/runs/${runUID}/runnersData/`).push(userUID)
+}
+

@@ -90,8 +90,8 @@ class Map extends Component {
                                             value={this.state.runName}
                                             onChange={this.runNameChangeHandler}
                                             fullWidth={true}
-                                            floatingLabelFocusStyle={{ color: styleColors.blue }}
-                                            underlineFocusStyle={{ borderColor: styleColors.blue }}
+                                            floatingLabelFocusStyle={{ color: styleColors.secondary }}
+                                            underlineFocusStyle={{ borderColor: styleColors.secondary }}
                                         />
                                     </div>
                                     <CategoryOfRun

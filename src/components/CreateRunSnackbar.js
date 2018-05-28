@@ -27,8 +27,8 @@ export default class AddRunSnackbar extends React.Component {
                     label="CREATE RUN"
                     style={{ marginBottom: '10px' }}
                     fullWidth={true}
-                    backgroundColor={styleColors.red}
-                    labelColor={styleColors.white}
+                    backgroundColor={styleColors.danger}
+                    labelColor={styleColors.standard}
                     labelStyle={style.labelStyle}
                 />
                 <Snackbar

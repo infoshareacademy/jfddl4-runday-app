@@ -6,20 +6,24 @@ import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
 import Container from './UI/Container'
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import style from '../style';
 
 const ListResearch = (props) => (
   <div>
     <Container>
       <Grid>
         <Row>
-          <Col xs={12} sm={12} md={6} lg={6}>
-            <TextField
-              onChange={props.handleRunNameChangeChandler}
-              hintText={'Run name'}
-              floatingLabelText={'Search run'}
-              fullWidth={true}
-            />
+          <Col xs={12} sm={12} md={6} lg={6} >
+            <div style={style.textFieldAlign}>
+              <h3>Search Run:</h3>
+              <TextField
+                style={style.textFieldMargin}
+                onChange={props.handleRunNameChangeChandler}
+                hintText={'Run name'}
+              />
+            </div>
           </Col>
+
           <Col xs={12} sm={12} md={6} lg={6}>
             <DropDownMenu
               autoWidth={false}
@@ -31,7 +35,7 @@ const ListResearch = (props) => (
               <MenuItem value={'forest'} primaryText="Forest runs" />
               <MenuItem value={'city'} primaryText="City runs" />
               <MenuItem value={'user_id'} primaryText="My runs" />
-              
+
             </DropDownMenu>
             <br />
           </Col>

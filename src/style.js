@@ -1,15 +1,15 @@
 export const styleColors = {
-    green: '#3cba54',
-    red: '#db3236',
-    blue: '#4885ed',
-    yellow: '#f4c20d',
-    white: '#FFF'
+    primary: '#3cba54', //green
+    secondary: '#4885ed', //blue
+    danger: '#db3236', //red
+    think: '#f4c20d', //yellow
+    standard: '#FFF'
 }
 
 export default {
 
     appBar: {
-        background: styleColors.green
+        background: styleColors.primary
     },
     container: {
         standard: {
@@ -34,16 +34,23 @@ export default {
         marginRight: 'auto',
         textAlign: 'center'
     },
+    containerChart: {
+        textAlign: 'center',
+        borderRadius: '10px',
+        border: 'solid 1px #3cba54',
+        margin: '10px',
+        paddingLeft: '10px',
+    },
     labelStyle: {
         fontWeight: '900'
     },
-    loginButton: styleColors.green,
+    loginButton: styleColors.primary,
     loginButtonFill: {
         marginTop: '10px',
 
     },
-    loginStyle: { background: styleColors.green },
-    registerStyle: { background: styleColors.blue },
+    loginStyle: { background: styleColors.primary },
+    registerStyle: { background: styleColors.secondary },
     textFieldMargin: { marginLeft: '10px' },
     textFieldAlign: {
         display: 'flex',
@@ -53,5 +60,6 @@ export default {
         marginTop: '10px',
         paddingLeft: '10px',
     },
+
 
 }
