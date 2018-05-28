@@ -1,7 +1,7 @@
 import React from 'react'
 import Snackbar from 'material-ui/Snackbar'
 import RaisedButton from 'material-ui/RaisedButton'
-
+import style, { styleColors } from '../style'
 
 export default class AddRunSnackbar extends React.Component {
     state = {
@@ -17,8 +17,8 @@ export default class AddRunSnackbar extends React.Component {
             open: true
         })
     }
-    handleRequestClose = () => this.setState({open: false})
-    
+    handleRequestClose = () => this.setState({ open: false })
+
     render() {
         return (
             <div>
@@ -26,8 +26,10 @@ export default class AddRunSnackbar extends React.Component {
                     onClick={this.handleClick}
                     label="CREATE RUN"
                     style={{ marginBottom: '10px' }}
-                    primary={true}
                     fullWidth={true}
+                    backgroundColor={styleColors.danger}
+                    labelColor={styleColors.standard}
+                    labelStyle={style.labelStyle}
                 />
                 <Snackbar
                     open={this.state.open}
