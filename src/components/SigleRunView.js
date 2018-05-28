@@ -2,14 +2,14 @@ import React from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 
-import Container from './UI/Container';
-import SingleViewMap from './SingleViewMap';
-import { RaisedButton } from 'material-ui';
+import Container from './UI/Container'
+import SingleViewMap from './SingleViewMap'
+import { RaisedButton } from 'material-ui'
 
 import LocationCity from 'material-ui/svg-icons/social/location-city'
 import LocalFlorist from 'material-ui/svg-icons/maps/local-florist'
 import { mapObjectToArray } from './methods/mapObjectToArray'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import style, { styleColors } from '../style'
 const CardExampleExpandable = ({ run, onAdRunner, user }) => (
 
@@ -45,7 +45,7 @@ const CardExampleExpandable = ({ run, onAdRunner, user }) => (
               labelColor={styleColors.standard}
               labelStyle={style.labelStyle}
               label={run.runnersData ?
-                mapObjectToArray(run.runnersData).length < run.runners
+                mapObjectToArray(run.runnersData).length <= run.runners
                   ?
                   "JOIN"
                   :
@@ -55,7 +55,7 @@ const CardExampleExpandable = ({ run, onAdRunner, user }) => (
                 run.runnersData ?
                   mapObjectToArray(run.runnersData)
                     .map(runner => runner.value)
-                    .includes(user.email) || mapObjectToArray(run.runnersData).length < run.runners ?
+                    .includes(user.email) || mapObjectToArray(run.runnersData).length <= run.runners ?
                     true
                     :
                     false
