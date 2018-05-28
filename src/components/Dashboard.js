@@ -14,7 +14,6 @@ class Dashboard extends React.Component {
     imWithErrors: false,
     data: []
   }
-
   componentDidMount() {
     database.ref('/runs').on(
       'value',
@@ -50,7 +49,8 @@ class Dashboard extends React.Component {
               <Col xs={12} sm={12} md={12} lg={6}>
                 <div style={style.containerChart}>
                   <h2>Running Category </h2>
-                  <PieChart width={500} height={500}>
+                  <PieChart width={window.innerWidth < 700 ? 300 : 500} height={window.innerWidth < 700 ? 300 : 500}
+                    style={{ marginLeft: 'auto', marginRight: 'auto' }}>
                     <Pie
                       data={this.state.data}
                       dataKey="value"
@@ -64,8 +64,9 @@ class Dashboard extends React.Component {
               </Col>
               <Col xs={12} sm={12} md={12} lg={6}>
                 <h2 style={{ textAlign: 'center' }}>Daily Users Logs </h2>
-                <BarChart width={600} height={400} data={this.props.logins}
-                  margin={{ top: 5, right: 5, left: 30, bottom: 5 }} style={{ float: 'left' }}>
+                <BarChart width={window.innerWidth < 700 ? 300 : 600} height={window.innerWidth < 700 ? 200 : 400} data={this.props.logins}
+                  margin={{ top: 10, right: 5, left: 5, bottom: 5 }} style={{ float: 'left' }}
+                  style={{ marginLeft: 'auto', marginRight: 'auto' }}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="Name" />
                   <YAxis />

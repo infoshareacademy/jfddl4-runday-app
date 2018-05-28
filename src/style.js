@@ -41,13 +41,15 @@ export default {
         margin: '10px',
         paddingLeft: '10px',
     },
+    containerSingleRun: {
+        marginTop: '10px'
+    },
     labelStyle: {
         fontWeight: '900'
     },
     loginButton: styleColors.primary,
     loginButtonFill: {
         marginTop: '10px',
-
     },
     loginStyle: { background: styleColors.primary },
     registerStyle: { background: styleColors.secondary },
@@ -60,6 +62,12 @@ export default {
         marginTop: '10px',
         paddingLeft: '10px',
     },
+    runsView: {
+        borderRadius: '10px',
+        border: 'solid 1px #3cba54',
+        paddingLeft: '10px',
+        marginBottom: '10px'
+    }
 
 
 }

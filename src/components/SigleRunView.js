@@ -24,7 +24,7 @@ const CardExampleExpandable = ({ run, onAdRunner, user }) => (
     <CardText expandable={true}>
       <Grid>
         <Row>
-          <Col xs={12} sm={12} md={9} lg={9}>
+          <Col xs={12} sm={12} md={9} lg={9} style={{marginBottom: '10px'}}>
             <Container>
               <SingleViewMap
                 markers={run.markers}
@@ -32,14 +32,15 @@ const CardExampleExpandable = ({ run, onAdRunner, user }) => (
               />
             </Container>
           </Col>
-          <Col xs={12} sm={12} md={3} lg={3}>
-            <div>Run date: {run.runData} </div>
-            <div>Category: {run.category} </div>
-            <div>Max runners: {run.runners} </div>
+          <Col xs={12} sm={12} md={3} lg={3} style={style.runsView}>
+            <div style={style.containerSingleRun}>Run date: {run.runData} </div>
+            <div style={style.containerSingleRun}>Category: {run.category} </div>
+            <div style={style.containerSingleRun}>Max runners: {run.runners} </div>
 
             <RaisedButton
               onClick={onAdRunner}
               fullWidth={true}
+              style={{marginTop: '10px'}}
               backgroundColor={styleColors.danger}
               labelColor={styleColors.standard}
               labelStyle={style.labelStyle}
